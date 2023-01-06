@@ -1,0 +1,28 @@
+{
+  "navMenuData": {
+    "mainTitle": "ユーザイア特設サイト(仮)",
+    "menuLists": [
+      {
+        "type": "link",
+        "name": "sample1",
+        "href": "#"
+      },
+      {
+        "type": "link",
+        "name": "sample2",
+        "href": "#"
+      },
+      {
+        "type": "dropdown",
+        "name": "dropDown1",
+        "buttonArray": [
+          {
+            "type": "item",
+            "name": "subItem1",
+            "href": "#"
+          }
+        ]
+      }
+    ]
+  }
+}
