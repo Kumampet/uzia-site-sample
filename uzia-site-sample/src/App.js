@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 // import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { CustomNavbar } from './components';
+import {CustomNavbar as Navbar } from './components';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <CustomNavbar />
+        <Navbar />
       </React.Fragment>
     );
   }
