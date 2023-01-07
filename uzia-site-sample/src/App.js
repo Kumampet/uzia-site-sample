@@ -16,18 +16,21 @@ class App extends Component {
   
   
   render() {
-    console.log(process.env)
+    let basePath = process.env.PUBLIC_URL;
+    if (process.env.NODE_ENV === 'production') {
+      basePath = process.env.PUBLIC_URL + "/uzia-site-sample"
+    }
     return (
       <React.Fragment>
         <Navbar />
         <Router>
-          <Route path={`${process.env.PUBLIC_URL}/`} exact>
+          <Route path={`${basePath}/`} exact>
             <Home/>
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/about`}>
+          <Route path={`${basePath}/about`}>
             <About/>
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/game`}>
+          <Route path={`${basePath}/game`}>
             <Game/>
           </Route>
         </Router>
