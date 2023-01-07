@@ -22,8 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/uzia-site-sample react-scripts build",
-    "build:prod": "cross-env PAGE_PATH=/uzia-site-sample/uzia-site-sample react-scripts build",
+    "build": "cross-env PUBLIC_URL=/uzia-site-sample react-scripts build | cross-env PAGE_PATH=/uzia-site-sample/uzia-site-sample react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build",
