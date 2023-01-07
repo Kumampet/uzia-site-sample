@@ -4,22 +4,27 @@
     "menuLists": [
       {
         "type": "link",
-        "name": "sample1",
-        "href": "#"
+        "name": "home",
+        "href": "/"
       },
       {
         "type": "link",
-        "name": "sample2",
-        "href": "#"
+        "name": "about",
+        "href": "/about"
+      },
+      {
+        "type": "link",
+        "name": "game",
+        "href": "/game"
       },
       {
         "type": "dropdown",
-        "name": "dropDown1",
+        "name": "products",
         "buttonArray": [
           {
             "type": "item",
-            "name": "subItem1",
-            "href": "#"
+            "name": "prod item 1",
+            "href": "/prod"
           }
         ]
       }

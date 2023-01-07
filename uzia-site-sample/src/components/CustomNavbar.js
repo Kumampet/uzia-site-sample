@@ -100,7 +100,7 @@ class CustomNavbar extends Component {
     return (
       <Navbar bg="primary" expand="md">
         <Container>
-          <Navbar.Brand href="#home">{brandTitle}</Navbar.Brand>
+          <Navbar.Brand href="/">{brandTitle}</Navbar.Brand>
           {!_isEmpty(navbarMenus) && (
             <React.Fragment>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />

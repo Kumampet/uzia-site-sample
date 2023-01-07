@@ -1,4 +1,11 @@
+html, body, #root {
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column!important;
+}
+
 .footer {
+  margin-top: auto !important;
   --cui-footer-min-height: 3rem;
   --cui-footer-padding-x: 1rem;
   --cui-footer-padding-y: 0.5rem;
