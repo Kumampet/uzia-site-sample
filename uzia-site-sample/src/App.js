@@ -18,8 +18,10 @@ class App extends Component {
   render() {
     let basePath = process.env.PUBLIC_URL;
     if (process.env.NODE_ENV === 'production') {
+      console.log("this production")
       basePath = process.env.PUBLIC_URL + "/uzia-site-sample"
     }
+    console.log({basePath})
     return (
       <React.Fragment>
         <Navbar />
