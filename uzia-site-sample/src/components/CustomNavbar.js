@@ -9,13 +9,18 @@ import NavmanuData from '../static/navmanu.json';
 class CustomNavbar extends Component {
   constructor(props) {
     super(props);
+    let basePath = process.env.PUBLIC_URL;
+    if (process.env.NODE_ENV === 'production') {
+      basePath = process.env.PUBLIC_URL + "/uzia-site-sample"
+    }
     this.state = {
       fixed: props.fixed,
       sticky: props.sticky,
       bg: props.bg || 'light',
       expand: props.size || 'md',
       navNemuData: NavmanuData.navMenuData,
-      navbarMenus: []
+      navbarMenus: [],
+      basePath: basePath
     }
   }
 
@@ -59,9 +64,10 @@ class CustomNavbar extends Component {
   }
 
   createNavbarLink = (menuLink = {}) => {
+    const basePath = this.state.basePath;
     const linkName = menuLink.name;
     const linkHref = menuLink.href;
-    return linkName && linkHref ? <Nav.Link href={linkHref}>{linkName}</Nav.Link> : null;
+    return linkName && linkHref ? <Nav.Link href={basePath + linkHref}>{linkName}</Nav.Link> : null;
   }
 
   createNavbarDropdown = (dropdown = {}) => {
@@ -92,17 +98,19 @@ class CustomNavbar extends Component {
   }
 
   createNavbarDropdownItem = (item = {}) => {
+    const basePath = this.state.basePath;
     const itemName = item.name;
     const itemHref = item.href;
-    return itemName && itemHref ? <NavDropdown.Item href={itemHref}>{itemName}</NavDropdown.Item> : null;
+    return itemName && itemHref ? <NavDropdown.Item href={basePath + itemHref}>{itemName}</NavDropdown.Item> : null;
   }
 
   render() {
-    const { brandTitle, navbarMenus, fixed, sticky } = this.state;
+    const { brandTitle, navbarMenus, fixed, sticky, basePath } = this.state;
+    
     return (
       <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
         <Container>
-          <Navbar.Brand href="/">{brandTitle}</Navbar.Brand>
+          <Navbar.Brand href={`${basePath}/`}>{brandTitle}</Navbar.Brand>
           {!_isEmpty(navbarMenus) && (
             <React.Fragment>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
