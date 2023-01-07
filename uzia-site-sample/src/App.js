@@ -20,13 +20,13 @@ class App extends Component {
       <React.Fragment>
         <Navbar />
         <Router>
-          <Route path='/' exact>
+          <Route path={`${process.env.PUBLIC_URL}/`} exact>
             <Home/>
           </Route>
-          <Route path='/about'>
+          <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About/>
           </Route>
-          <Route path='/game'>
+          <Route path={`${process.env.PUBLIC_URL}/game`}>
             <Game/>
           </Route>
         </Router>
