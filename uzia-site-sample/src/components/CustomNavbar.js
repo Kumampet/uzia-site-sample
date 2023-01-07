@@ -10,9 +10,6 @@ class CustomNavbar extends Component {
   constructor(props) {
     super(props);
     let basePath = process.env.PUBLIC_URL;
-    if (process.env.NODE_ENV === 'production') {
-      basePath = process.env.PUBLIC_URL + "/uzia-site-sample"
-    }
     this.state = {
       fixed: props.fixed,
       sticky: props.sticky,
