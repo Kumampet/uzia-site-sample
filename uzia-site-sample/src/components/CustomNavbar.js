@@ -10,6 +10,8 @@ class CustomNavbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      fixed: props.fixed,
+      sticky: props.sticky,
       bg: props.bg || 'light',
       expand: props.size || 'md',
       navNemuData: NavmanuData.navMenuData,
@@ -96,9 +98,9 @@ class CustomNavbar extends Component {
   }
 
   render() {
-    const { brandTitle, navbarMenus } = this.state;
+    const { brandTitle, navbarMenus, fixed, sticky } = this.state;
     return (
-      <Navbar bg="primary" expand="md">
+      <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
         <Container>
           <Navbar.Brand href="/">{brandTitle}</Navbar.Brand>
           {!_isEmpty(navbarMenus) && (

@@ -1,0 +1,52 @@
+{
+  "top_carousel_data": {
+    "contents": [
+      {
+        "id": "0000",
+        "img_file_name": "1.png",
+        "alt": "hoge",
+        "href": "/",
+        "caption": {
+          "title": "caption title",
+          "text": "caption text"
+        },
+        "interval": "1000"
+      },
+      {
+        "id": "0001",
+        "img_file_name": "2.png",
+        "alt": "hoge",
+        "href": "/",
+        "caption": {
+          "title": "caption title",
+          "text": "caption text"
+        },
+        "interval": "3000"
+      },
+      {
+        "id": "0001",
+        "img_file_name": "3.png",
+        "alt": "hoge",
+        "href": "/",
+        "caption": {
+          "title": "caption title",
+          "text": "caption text"
+        },
+        "interval": "8000",
+        "theme": "light"
+      },
+      {
+        "id": "0001",
+        "img_file_name": "4.png",
+        "alt": "hoge",
+        "href": "/"
+      },
+      {
+        "id": "0001",
+        "img_file_name": "5.png",
+        "alt": "hoge",
+        "href": "/"
+      }
+    ]
+  }
+}
