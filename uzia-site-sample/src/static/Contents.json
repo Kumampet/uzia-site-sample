@@ -11,6 +11,39 @@
           "href": "/",
           "text": "くわしく"
         }
+      },
+      {
+        "title": "Test",
+        "text": "最新作の最強のゲーム！！",
+        "poster": {
+          "card": "/img/top_latest_content/cardtile_img.png"
+        },
+        "link": {
+          "href": "/",
+          "text": "くわしく"
+        }
+      },
+      {
+        "title": "Test",
+        "text": "最新作の最強のゲーム！！",
+        "poster": {
+          "card": "/img/top_latest_content/cardtile_img.png"
+        },
+        "link": {
+          "href": "/",
+          "text": "くわしく"
+        }
+      },
+      {
+        "title": "Test",
+        "text": "最新作の最強のゲーム！！",
+        "poster": {
+          "card": "/img/top_latest_content/cardtile_img.png"
+        },
+        "link": {
+          "href": "/",
+          "text": "くわしく"
+        }
       }
     ]
   }

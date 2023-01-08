@@ -16,7 +16,8 @@ class CardTile extends React.Component {
   static defaultProps = {
     contentItems: [],
     xsThreshold: 1,
-    mdThreshold: 3
+    mdThreshold: 3,
+    lgThreshold: 4
   }
 
   constructor(props) {
@@ -25,6 +26,7 @@ class CardTile extends React.Component {
       contentItems: props.contentItems,
       xsThreshold: props.xsThreshold,
       mdThreshold: props.mdThreshold,
+      lgThreshold: props.lgThreshold,
       maxRow: props.maxRow
     };
   }
@@ -44,6 +46,7 @@ class CardTile extends React.Component {
     const innerWidth = window.innerWidth;
     const breakPoints = this.context.breakPoints;
     let breakPoint;
+    console.log({innerWidth})
     if (breakPoints.xxl <= innerWidth) {
       breakPoint = 'xxl';
     } else if (breakPoints.xl <= innerWidth && innerWidth < breakPoints.xxl) {
@@ -67,7 +70,7 @@ class CardTile extends React.Component {
     }
     const cardItemElements = [];
     _forEach(contentItems, (contentItem, index) => {
-      let threshold = this.state.mdThreshold;
+      let threshold = this.state.lgThreshold;
       const breakPoint = this.state.breakPoint;
       const option = {
         flex: false
@@ -77,11 +80,14 @@ class CardTile extends React.Component {
       if (breakPoint === "sm" || breakPoint === "xs") {
         threshold = this.state.xsThreshold;
         option.flex = true;
+      } else if (breakPoint === "md") {
+        threshold = this.state.mdThreshold;
       }
 
       if (this.state.maxRow) {
         // 表示する行数に制限がある場合
         const maxIndex = threshold * this.state.maxRow;
+        console.log({maxIndex})
         if (index < maxIndex) {
           cardItemElements.push(this.createCardElements(contentItem, option));
         }
@@ -132,11 +138,11 @@ class CardTile extends React.Component {
   }
 
   render() {
-    const { contentItems, xsThreshold, mdThreshold } = this.state;
+    const { contentItems, xsThreshold, mdThreshold, lgThreshold } = this.state;
     if (_isEmpty(contentItems)) return null;
 
     return (
-      <Row xs={xsThreshold} md={mdThreshold} className="g-4">
+      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4">
         {this.fetchCardTiles()}
       </Row>
     )
