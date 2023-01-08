@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { CardGroup, Row, Col, Card, Button } from 'react-bootstrap';
 import _isEmpty from 'lodash/isEmpty';
@@ -24,6 +25,7 @@ class CardTile extends React.Component {
     super(props);
     this.state = {
       contentItems: props.contentItems,
+      contentTypeKey: props.contentTypeKey,
       xsThreshold: props.xsThreshold,
       mdThreshold: props.mdThreshold,
       lgThreshold: props.lgThreshold,
@@ -64,30 +66,32 @@ class CardTile extends React.Component {
   }
 
   fetchCardTiles = () => {
-    const contentItems = this.state.contentItems;
+    const { contentTypeKey, contentItems, xsThreshold, mdThreshold, lgThreshold, breakPoint, maxRow } = this.state;
     if (_isEmpty(contentItems)) {
       return null;
     }
     const cardItemElements = [];
     _forEach(contentItems, (contentItem, index) => {
-      let threshold = this.state.lgThreshold;
-      const breakPoint = this.state.breakPoint;
+      let threshold = lgThreshold;
+      const _breakPoint = breakPoint;
       const option = {
+        contentTypeKey: contentTypeKey,
+        index: index,
         flex: false
       };
 
       // 画面サイズがsm, csの場合は表示上限を変更し、カード内部の画像を横並びにする
-      if (breakPoint === "sm" || breakPoint === "xs") {
-        threshold = this.state.xsThreshold;
+      if (_breakPoint === "sm") {
+        threshold = xsThreshold;
         option.flex = true;
-      } else if (breakPoint === "md") {
-        threshold = this.state.mdThreshold;
+      } else if (_breakPoint === "md") {
+        threshold = mdThreshold;
       }
 
-      if (this.state.maxRow) {
+      // 表示項目の初期化
+      if (maxRow) {
         // 表示する行数に制限がある場合
-        const maxIndex = threshold * this.state.maxRow;
-        console.log({maxIndex})
+        const maxIndex = threshold * maxRow;
         if (index < maxIndex) {
           cardItemElements.push(this.createCardElements(contentItem, option));
         }
@@ -109,7 +113,7 @@ class CardTile extends React.Component {
     const cardBody = (
       <Card.Body>
         {title && <Card.Title>{title}</Card.Title>}
-        {text && <Card.Text>{text}</Card.Text>}
+        {text && <Card.Text className={classnames(`card-text-${option.index}`, `content-type-key-${option.contentTypeKey}`)}>{text}</Card.Text>}
         {linkText && linkText && <Button variant="primary" href={linkHref}>{linkText}</Button>}
       </Card.Body>
     )
@@ -142,7 +146,7 @@ class CardTile extends React.Component {
     if (_isEmpty(contentItems)) return null;
 
     return (
-      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4">
+      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="gx-4 gy-1">
         {this.fetchCardTiles()}
       </Row>
     )
