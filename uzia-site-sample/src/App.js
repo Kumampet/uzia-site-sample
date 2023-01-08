@@ -5,6 +5,7 @@ import {
   CustomFooter as Footer,
   Home, About, Game
 } from './components';
+import AppContext from './AppContext';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -12,11 +13,31 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+    this.breakPoint = ""
+  }
+
+  componentDidMount() {
+    this._isMountned = true;
+  }
+
+  componentWillUnmount() {
+    this._isMountned = false;
   }
 
   render() {
+    const contextValue = {
+      breakPoints: {
+        xxl: 1400,
+        xl: 1200,
+        lg: 992,
+        md: 768,
+        sm: 576
+      }
+    }
     return (
-      <React.Fragment>
+      <AppContext.Provider value={contextValue}>
         <Navbar />
         <Router>
           <Route path={`${process.env.PUBLIC_URL}/`} exact>
@@ -30,7 +51,7 @@ class App extends Component {
           </Route>
         </Router>
         <Footer />
-      </React.Fragment>
+      </AppContext.Provider>
     );
   }
 }

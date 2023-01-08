@@ -15,7 +15,7 @@ class HomeContentRow extends React.Component {
     return (
       <div className="mt-5">
         <h2>{headerTitle}</h2>
-        {contentType === 'card' && <CardTile contentItems={contentItems} />}
+        {contentType === 'card' && <CardTile contentItems={contentItems} maxRow={1} />}
       </div>
     );
   }
