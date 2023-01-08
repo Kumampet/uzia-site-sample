@@ -50,7 +50,7 @@ class App extends Component {
           <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/game`}>
+          <Route path={`${process.env.PUBLIC_URL}/contents`}>
             <Game />
           </Route>
         </Router>

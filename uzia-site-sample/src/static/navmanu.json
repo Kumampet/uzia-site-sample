@@ -14,8 +14,8 @@
       },
       {
         "type": "link",
-        "name": "game",
-        "href": "/game"
+        "name": "Contents",
+        "href": "/contents"
       },
       {
         "type": "dropdown",
