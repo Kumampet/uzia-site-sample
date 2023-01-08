@@ -18,15 +18,9 @@
         "href": "/contents"
       },
       {
-        "type": "dropdown",
-        "name": "products",
-        "buttonArray": [
-          {
-            "type": "item",
-            "name": "prod item 1",
-            "href": "/prod"
-          }
-        ]
+        "type": "link",
+        "name": "Contact",
+        "href": "/contact"
       }
     ]
   }

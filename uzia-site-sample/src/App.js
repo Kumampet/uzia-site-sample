@@ -8,6 +8,7 @@ import {
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ContentDatas from './static/Contents.json';
+import NewsDatas from './static/News.json';
 
 class App extends Component {
   constructor(props) {
@@ -35,11 +36,13 @@ class App extends Component {
         md: 768,
         sm: 576
       },
-      constentDatas: ContentDatas.contents_data
+      constentDatas: ContentDatas.contents_data,
+      newsDatas: NewsDatas.news_data,
     }
   }
 
   render() {
+    console.log("App::this.contextValue -> ", this.contextValue)
     return (
       <AppContext.Provider value={this.contextValue}>
         <Navbar />
@@ -51,6 +54,9 @@ class App extends Component {
             <About />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/contents`}>
+            <Game />
+          </Route>
+          <Route path={`${process.env.PUBLIC_URL}/contact`}>
             <Game />
           </Route>
         </Router>
