@@ -13,21 +13,20 @@ class App extends Component {
     super(props);
     this.state = {}
   }
-  
-  
+
   render() {
     return (
       <React.Fragment>
         <Navbar />
         <Router>
           <Route path={`${process.env.PUBLIC_URL}/`} exact>
-            <Home/>
+            <Home />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/about`}>
-            <About/>
+            <About />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/game`}>
-            <Game/>
+            <Game />
           </Route>
         </Router>
         <Footer />

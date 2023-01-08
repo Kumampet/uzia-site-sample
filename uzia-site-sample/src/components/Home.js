@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import AppContext from '../AppContext';
+
 import { Container } from 'react-bootstrap';
 import {
   HomeContentRow,
@@ -10,6 +13,8 @@ import _isEmpty from 'lodash/isEmpty';
 import topCarouselInfo from '../static/topCarouselInfo.json';
 
 class Home extends React.Component {
+  static contextType = AppContext;
+
   constructor(props) {
     super(props);
     this.state = {};
@@ -26,12 +31,12 @@ class Home extends React.Component {
 
   fetchCarouselItems = () => {
     const items = _get(topCarouselInfo, "top_carousel_data.contents", []);
-    console.log({ items })
     this.setState({ carouselItems: items });
   }
 
   render() {
     const { carouselItems } = this.state;
+    console.log(this.context)
     return (
       <React.Fragment>
         {!_isEmpty(carouselItems) ? (
