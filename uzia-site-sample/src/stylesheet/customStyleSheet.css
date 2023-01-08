@@ -4,6 +4,27 @@ html, body, #root {
   flex-direction: column!important;
 }
 
+.page-header-container {
+  position: relative;
+}
+
+.page-header-container > .page-title {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.page-header-container > .page-header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 35vw;
+  max-height: 200px;
+}
+
 .footer {
   margin-top: auto !important;
   --cui-footer-min-height: 3rem;

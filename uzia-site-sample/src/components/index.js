@@ -8,3 +8,5 @@ export { default as HomeContentRow } from './HomeContentRow';
 export { default as CardTile } from './CardTile';
 export { default as About } from './About';
 export { default as Game } from './Game';
+export { default as Contact } from './Contact';
+export { default as PageHeaderImage } from './PageHeaderImage';

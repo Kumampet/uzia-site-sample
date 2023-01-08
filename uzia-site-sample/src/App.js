@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './stylesheet/App.css';
 import {
   CustomNavbar as Navbar,
   CustomFooter as Footer,
-  Home, About, Game
+  Home, About, Game, Contact
 } from './components';
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -27,6 +26,10 @@ class App extends Component {
     this._isMountned = false;
   }
 
+  getLocationPageName = () => {
+    const pathName = window.location.pathname
+  }
+
   get contextValue() {
     return {
       breakPoints: {
@@ -38,6 +41,8 @@ class App extends Component {
       },
       constentDatas: ContentDatas.contents_data,
       newsDatas: NewsDatas.news_data,
+      locationPathName: window.location.pathname,
+      locationPageName: this.getLocationPageName()
     }
   }
 
@@ -57,7 +62,7 @@ class App extends Component {
             <Game />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/contact`}>
-            <Game />
+            <Contact />
           </Route>
         </Router>
         <Footer />

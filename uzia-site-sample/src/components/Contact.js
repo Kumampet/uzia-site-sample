@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { PageHeaderImage } from '../components';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -9,7 +11,9 @@ class Contact extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>こんたくと</h1>
+        <PageHeaderImage backgroundImageSource={`${process.env.PUBLIC_URL}/img/page_header/mori.png`}/>
+        <Container>
+        </Container>
       </React.Fragment>
     );
   }
