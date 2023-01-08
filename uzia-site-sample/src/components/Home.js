@@ -43,7 +43,7 @@ class Home extends React.Component {
           <Carousel items={carouselItems} defaultTheme="dark" />
         ) : null}
         <Container>
-          <HomeContentRow title="LATEST CONTENTS" contentType="card" contentItems={[]}/>
+          <HomeContentRow title="LATEST CONTENTS" contentType="card" contentItems={this.context.constentDatas.data}/>
           <HomeContentRow title="LATEST NEWS"/>
         </Container>
       </React.Fragment>

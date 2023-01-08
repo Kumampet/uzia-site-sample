@@ -6,8 +6,8 @@ import {
   Home, About, Game
 } from './components';
 import AppContext from './AppContext';
-
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ContentDatas from './static/Contents.json';
 
 class App extends Component {
   constructor(props) {
@@ -26,18 +26,22 @@ class App extends Component {
     this._isMountned = false;
   }
 
-  render() {
-    const contextValue = {
+  get contextValue() {
+    return {
       breakPoints: {
         xxl: 1400,
         xl: 1200,
         lg: 992,
         md: 768,
         sm: 576
-      }
+      },
+      constentDatas: ContentDatas.contents_data
     }
+  }
+
+  render() {
     return (
-      <AppContext.Provider value={contextValue}>
+      <AppContext.Provider value={this.contextValue}>
         <Navbar />
         <Router>
           <Route path={`${process.env.PUBLIC_URL}/`} exact>

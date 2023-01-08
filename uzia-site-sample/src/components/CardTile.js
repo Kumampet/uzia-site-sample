@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { CardGroup, Row, Col, Card, Button } from 'react-bootstrap';
 import _isEmpty from 'lodash/isEmpty';
 import _forEach from 'lodash/forEach';
+import _get from 'lodash/get';
 import AppContext from '../AppContext';
-
 
 class CardTile extends React.Component {
   static contextType = AppContext;
@@ -52,7 +52,7 @@ class CardTile extends React.Component {
       breakPoint = 'lg';
     } else if (breakPoints.md <= innerWidth && innerWidth < breakPoints.lg) {
       breakPoint = 'md';
-    }else if (breakPoints.sm <= innerWidth && innerWidth < breakPoints.md) {
+    } else if (breakPoints.sm <= innerWidth && innerWidth < breakPoints.md) {
       breakPoint = 'sm';
     } else {
       breakPoint = 'xs';
@@ -61,50 +61,80 @@ class CardTile extends React.Component {
   }
 
   fetchCardTiles = () => {
-    const createElements = (content) => {
-      return (
-        <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      )
-    }
-
     const contentItems = this.state.contentItems;
-    // if (_isEmpty(contentItems)) {
-    //   return null;
-    // }
+    if (_isEmpty(contentItems)) {
+      return null;
+    }
     const cardItemElements = [];
-    _forEach([1, 2, 3, 4, 5, 6, 7, 8], (contentItem, index) => {
+    _forEach(contentItems, (contentItem, index) => {
+      let threshold = this.state.mdThreshold;
       const breakPoint = this.state.breakPoint;
-      console.log({breakPoint})
+      const option = {
+        flex: false
+      };
+
+      // 画面サイズがsm, csの場合は表示上限を変更し、カード内部の画像を横並びにする
+      if (breakPoint === "sm" || breakPoint === "xs") {
+        threshold = this.state.xsThreshold;
+        option.flex = true;
+      }
+
       if (this.state.maxRow) {
         // 表示する行数に制限がある場合
-        let threshold = breakPoint === "sm" || breakPoint === "xs" ? this.state.xsThreshold : this.state.mdThreshold;
         const maxIndex = threshold * this.state.maxRow;
         if (index < maxIndex) {
-          cardItemElements.push(createElements(contentItem));
+          cardItemElements.push(this.createCardElements(contentItem, option));
         }
+      } else {
+        cardItemElements.push(this.createCardElements(contentItem, option));
       }
     });
-
-    console.log("elemtLength: ", cardItemElements.length)
 
     return cardItemElements;
   }
 
+  createCardElements = (content, option) => {
+    const cardImg = _get(content, 'poster.card');
+    const title = _get(content, 'title');
+    const text = _get(content, 'text');
+    const linkText = _get(content, 'link.text');
+    const linkHref = _get(content, 'link.href');
+
+    const cardBody = (
+      <Card.Body>
+        {title && <Card.Title>{title}</Card.Title>}
+        {text && <Card.Text>{text}</Card.Text>}
+        {linkText && linkText && <Button variant="primary" href={linkHref}>{linkText}</Button>}
+      </Card.Body>
+    )
+
+    return (
+      <Col>
+        <Card>
+          {option.flex ? (
+            <Row>
+              <Col>
+                <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+              </Col>
+              <Col>
+                {cardBody}
+              </Col>
+            </Row>
+          ) : (
+            <React.Fragment>
+              <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+              {cardBody}
+            </React.Fragment>
+          )}
+        </Card>
+      </Col>
+    )
+  }
+
   render() {
-    const { items, xsThreshold, mdThreshold } = this.state;
-    // if (_isEmpty(items)) return null;
+    const { contentItems, xsThreshold, mdThreshold } = this.state;
+    if (_isEmpty(contentItems)) return null;
+
     return (
       <Row xs={xsThreshold} md={mdThreshold} className="g-4">
         {this.fetchCardTiles()}
