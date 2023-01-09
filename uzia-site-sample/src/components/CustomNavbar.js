@@ -4,8 +4,6 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _isEmpty from 'lodash/isEmpty';
 
-import NavmanuData from '../static/navmanu.json';
-
 class CustomNavbar extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +13,7 @@ class CustomNavbar extends Component {
       sticky: props.sticky,
       bg: props.bg || 'light',
       expand: props.size || 'md',
-      navNemuData: NavmanuData.navMenuData,
+      navNemuData: props.navMenuData,
       navbarMenus: [],
       basePath: basePath
     }

@@ -6,6 +6,9 @@ import {
 } from './components';
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import _forEach from 'lodash/forEach';
+
+import NavmenuData from './static/Navmanu.json';
 import ContentDatas from './static/Contents.json';
 import NewsDatas from './static/News.json';
 
@@ -26,10 +29,6 @@ class App extends Component {
     this._isMountned = false;
   }
 
-  getLocationPageName = () => {
-    const pathName = window.location.pathname
-  }
-
   get contextValue() {
     return {
       breakPoints: {
@@ -39,10 +38,10 @@ class App extends Component {
         md: 768,
         sm: 576
       },
+      navMenuData: NavmenuData.nav_menu_data,
       constentDatas: ContentDatas.contents_data,
       newsDatas: NewsDatas.news_data,
-      locationPathName: window.location.pathname,
-      locationPageName: this.getLocationPageName()
+      locationPathName: window.location.pathname
     }
   }
 
@@ -50,7 +49,7 @@ class App extends Component {
     console.log("App::this.contextValue -> ", this.contextValue)
     return (
       <AppContext.Provider value={this.contextValue}>
-        <Navbar />
+        <Navbar navMenuData={this.contextValue.navMenuData.data} />
         <Router>
           <Route path={`${process.env.PUBLIC_URL}/`} exact>
             <Home />

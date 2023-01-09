@@ -1,27 +1,29 @@
 {
-  "navMenuData": {
-    "mainTitle": "NAV TITLE",
-    "menuLists": [
-      {
-        "type": "link",
-        "name": "home",
-        "href": "/"
-      },
-      {
-        "type": "link",
-        "name": "about",
-        "href": "/about"
-      },
-      {
-        "type": "link",
-        "name": "Contents",
-        "href": "/contents"
-      },
-      {
-        "type": "link",
-        "name": "Contact",
-        "href": "/contact"
-      }
-    ]
+  "nav_menu_data": {
+    "data": {
+      "mainTitle": "NAV TITLE",
+      "menuLists": [
+        {
+          "type": "link",
+          "name": "home",
+          "href": "/"
+        },
+        {
+          "type": "link",
+          "name": "about",
+          "href": "/about"
+        },
+        {
+          "type": "link",
+          "name": "Contents",
+          "href": "/contents"
+        },
+        {
+          "type": "link",
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ]
+    }
   }
 }
