@@ -6,6 +6,10 @@ body,
   flex-direction: column !important;
 }
 
+#root > .container {
+  margin-bottom: 5rem;
+}
+
 /* Twitter setting */
 .twitter-color {
   background-color: #1A8CD8;
@@ -91,8 +95,4 @@ body,
   color: var(--cui-footer-color);
   background: var(--cui-footer-bg);
   border-top: var(--cui-footer-border);
-}
-
-.container+.footer {
-  margin-top: 5rem !important;
 }
