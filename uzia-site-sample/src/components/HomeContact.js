@@ -24,7 +24,7 @@ class HomeContact extends Component {
           <h3>Mail</h3>
           <p>mail@example.com</p>
         </div>
-        <Image width={250} fluid={true} rounded={true} src={`${process.env.PUBLIC_URL}/img/top_contact_catch.png`} />
+        <Image fluid={true} rounded={true} src={`${process.env.PUBLIC_URL}/img/top_contact_catch.png`} style={{ maxWidth: "250px"}} />
       </div>
     )
   }
