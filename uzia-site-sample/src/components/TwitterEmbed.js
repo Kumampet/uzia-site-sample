@@ -1,28 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterFollowButton,
-  TwitterHashtagButton,
-  TwitterMentionButton,
-  TwitterTweetEmbed,
-  TwitterMomentShare,
-  TwitterDMButton,
-  TwitterVideoEmbed,
-  TwitterOnAirButton
+  // TwitterShareButton,
+  // TwitterFollowButton,
+  // TwitterHashtagButton,
+  // TwitterMentionButton,
+  // TwitterMomentShare,
+  // TwitterDMButton,
+  // TwitterVideoEmbed,
+  // TwitterOnAirButton
 } from 'react-twitter-embed';
+import { Button } from 'react-bootstrap';
 
 class TwitterEmbed extends React.Component {
+  static propTypes = {
+    embedType: PropTypes.string.isRequired
+  }
+
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    const { embedType, sourceType, height, lang, url } = this.props;
+    const { embedType, sourceType, height, lang, url, recipientId } = this.props;
     let embed = null;
+    let loading = false;
+
 
     if (embedType === 'timeline') {
+      loading = true;
       embed = (
         <TwitterTimelineEmbed
           sourceType={sourceType}
@@ -34,15 +42,29 @@ class TwitterEmbed extends React.Component {
         />
       )
     }
+    if (embedType === 'dm_button') {
+      embed = (
+        <Button href={`https://twitter.com/messages/compose?recipient_id=${recipientId}`} target="_blank" className="twitter-dm-button-custom twitter-color">
+          <span>
+            <svg>
+              <use xlinkHref={`${process.env.PUBLIC_URL}/img/svg/twitter.svg#twitter`}></use>
+            </svg>
+            Twitter DM
+          </span>
+        </Button>
+      );
+    }
 
     return (
-      <div className="twitter-embed-container" style={{ height: `${height}px` }}>
+      <div className="twitter-embed-container"  style={{ height: `${height}px` }}>
         <div className="twitter-embed-body">
           {embed}
         </div>
-        <div className="twitter-embed-loading">
-          <h3>Now Loading...</h3>
-        </div>
+        {loading && (
+          <div className="twitter-embed-loading">
+            <h3>Now Loading...</h3>
+          </div>
+        )}
       </div>
     )
 

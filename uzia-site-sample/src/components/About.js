@@ -1,7 +1,7 @@
 import React from 'react';
 import AppContext from '../AppContext';
 import { Container } from 'react-bootstrap';
-import { PageHeaderImage, CardTile, AboutDevelopMember } from '../components';
+import { PageHeaderImage, AboutDevelopMember } from '../components';
 
 
 class About extends React.Component {

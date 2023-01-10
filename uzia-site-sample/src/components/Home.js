@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppContext from '../AppContext';
 import { Container, Row, Col } from 'react-bootstrap';
 import {

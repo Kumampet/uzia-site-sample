@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CustomTwitterDMButton } from '../components';
+import { TwitterEmbed } from '../components';
 import { Image } from 'react-bootstrap';
 import AppContext from '../AppContext';
 
@@ -18,7 +18,7 @@ class HomeContact extends Component {
         <p>当サークルへのお問い合わせはTwitter DMもしくはメールにお寄せください。</p>
         <div>
           <h3>Twitter DM</h3>
-          <CustomTwitterDMButton recipientId={twitter_id} />
+          <TwitterEmbed embedType="dm_button" recipientId={twitter_id} />
         </div>
         <div className="mail">
           <h3>Mail</h3>

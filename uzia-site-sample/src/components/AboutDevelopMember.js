@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContext from '../AppContext';
-import { Card, Button, ButtonGroup, Row, Col } from 'react-bootstrap';
+import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import { CardTile } from '../components';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';

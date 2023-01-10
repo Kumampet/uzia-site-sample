@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContext from '../AppContext';
-import { Container, ListGroup } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { NewsGallery, PageHeaderImage } from '../components';
 
 class News extends React.Component {

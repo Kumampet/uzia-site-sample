@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { CardGroup, Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import _isEmpty from 'lodash/isEmpty';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';

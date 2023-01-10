@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardTile } from '../components';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 
 class HomeContentRow extends React.Component {
   constructor(props) {

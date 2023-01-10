@@ -54,7 +54,7 @@ class CustomCarousel extends React.Component {
   }
 
   render() {
-    const { items, defaultTheme, theme } = this.state;
+    const { defaultTheme, theme } = this.state;
     return (
       <Carousel variant={theme || defaultTheme}>
         {this.generateCarouselContents()}
