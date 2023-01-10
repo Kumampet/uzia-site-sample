@@ -10,8 +10,8 @@ body,
   margin-bottom: 2rem;
 }
 
-/* react-bootstrap expand */
-.row-cols-1 .col:not(:first-child) {
+/* react-bootstrap expand custom */
+.home-info > .row-cols-1 .col:not(:first-child) {
   margin-top: 3rem;
 }
 
