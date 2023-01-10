@@ -11,6 +11,7 @@ import _forEach from 'lodash/forEach';
 import NavmenuData from './static/Navmanu.json';
 import ContentDatas from './static/Contents.json';
 import NewsDatas from './static/News.json';
+import DevelopMember from './static/DevelopMember.json';
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends Component {
       navMenuData: NavmenuData.nav_menu_data,
       constentDatas: ContentDatas.contents_data,
       newsDatas: NewsDatas.news_data,
+      developMemberDatas: DevelopMember.develop_member_datas,
       locationPathName: window.location.pathname
     }
   }

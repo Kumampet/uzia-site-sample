@@ -48,7 +48,7 @@ class CardTile extends React.Component {
     const innerWidth = window.innerWidth;
     const breakPoints = this.context.breakPoints;
     let breakPoint;
-    console.log({innerWidth})
+    console.log({ innerWidth })
     if (breakPoints.xxl <= innerWidth) {
       breakPoint = 'xxl';
     } else if (breakPoints.xl <= innerWidth && innerWidth < breakPoints.xxl) {
@@ -68,16 +68,18 @@ class CardTile extends React.Component {
   fetchCardTiles = () => {
     const { contentTypeKey, contentItems, xsThreshold, mdThreshold, lgThreshold, breakPoint, maxRow } = this.state;
     if (_isEmpty(contentItems)) {
+      console.log("Card Tile null")
       return null;
     }
     const cardItemElements = [];
     _forEach(contentItems, (contentItem, index) => {
       let threshold = lgThreshold;
       const _breakPoint = breakPoint;
+      const defaultFlex = _get(contentItem, "option.flex")
       const option = {
         contentTypeKey: contentTypeKey,
         index: index,
-        flex: false
+        flex: defaultFlex || false
       };
 
       // 画面サイズがsm, csの場合は表示上限を変更し、カード内部の画像を横並びにする
@@ -86,7 +88,10 @@ class CardTile extends React.Component {
         option.flex = true;
       } else if (_breakPoint === "md") {
         threshold = mdThreshold;
+      } else if (_breakPoint === "xs") {
+        option.flex = false;
       }
+
 
       // 表示項目の初期化
       if (maxRow) {
@@ -110,7 +115,7 @@ class CardTile extends React.Component {
     const linkText = _get(content, 'link.text');
     const linkHref = _get(content, 'link.href');
 
-    const cardBody = (
+    const cardBody = _get(content, 'content_body') || (
       <Card.Body>
         {title && <Card.Title>{title}</Card.Title>}
         {text && <Card.Text className={classnames(`card-text-${option.index}`, `content-type-key-${option.contentTypeKey}`)}>{text}</Card.Text>}
@@ -123,16 +128,22 @@ class CardTile extends React.Component {
         <Card>
           {option.flex ? (
             <Row>
-              <Col>
-                <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
-              </Col>
+              {cardImg && (
+                <Col>
+                  <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+                </Col>
+              )}
               <Col>
                 {cardBody}
               </Col>
             </Row>
           ) : (
             <React.Fragment>
-              <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+              {cardImg && (
+                <Col>
+                  <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+                </Col>
+              )}
               {cardBody}
             </React.Fragment>
           )}

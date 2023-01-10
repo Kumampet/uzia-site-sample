@@ -1,0 +1,25 @@
+{
+  "develop_member_datas": {
+    "data": [
+      {
+        "id": "0000",
+        "name": "test member name",
+        "text": "自己紹介です。現状は改行に対応していません。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。",
+        "twitter": "/",
+        "custom_links": [
+          {
+            "site_name": "Youtube",
+            "url": "https://www.youtube.com"
+          },
+          {
+            "site_name": "SoundCloud",
+            "url": "https://www.youtube.com"
+          }
+        ],
+        "poster": {
+          "card": "/img/member_img/member_img_sample.png"
+        }
+      }
+    ]
+  }
+}
