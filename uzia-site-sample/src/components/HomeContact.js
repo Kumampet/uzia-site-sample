@@ -16,7 +16,7 @@ class HomeContact extends Component {
     return (
       <div className="text-center d-flex flex-column justify-content-evenly align-items-center" style={{ height: "100%"}}>
         <p>当サークルへのお問い合わせはTwitter DMもしくはメールにお寄せください。</p>
-        <div>
+        <div className="text-nowrap">
           <h3>Twitter DM</h3>
           <TwitterEmbed embedType="dm_button" recipientId={twitter_id} />
         </div>
