@@ -7,12 +7,24 @@ body,
 }
 
 #root > .container {
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* react-bootstrap expand custom */
-.home-info > .row-cols-1 .col:not(:first-child) {
+/* ホームのTwitterとContactの上下マージン */
+#root[breakpoint="xs"] .home-info > .row-cols-1 .col:not(:first-child),
+#root[breakpoint="sm"] .home-info > .row-cols-1 .col:not(:first-child) {
   margin-top: 3rem;
+}
+
+/* HomeContentsRowのMBタイトル調整 */
+#root[breakpoint="xs"] .home-contents-row > .title-container {
+  flex-direction: column!important;
+  align-items: flex-start!important;
+}
+#root[breakpoint="xs"] .home-contents-row > .title-container > .btn {
+  margin-left: 0!important;
+  margin-top: .3rem;
 }
 
 /* Twitter setting */
@@ -64,6 +76,11 @@ body,
 /* Twitter Embed */
 .twitter-embed-container {
   position: relative;
+}
+
+#root[breakpoint="xs"] .twitter-embed-container {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .twitter-embed-container>* {

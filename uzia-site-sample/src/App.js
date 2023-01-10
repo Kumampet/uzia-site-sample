@@ -38,6 +38,7 @@ class App extends Component {
 
   componentDidMount() {
     this._isMountned = true;
+    this.setAttributeRootElement();
     window.addEventListener('resize', this.handleResize);
   }
 
