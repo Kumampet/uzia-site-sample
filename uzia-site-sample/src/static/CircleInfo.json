@@ -2,7 +2,10 @@
   "circle_info_data": {
     "circle_name": "ユーザイア アボカド農園",
     "sns": {
-      "twitter": "https://twitter.com/UZIApr"
+      "twitter": {
+        "timeline_url": "https://twitter.com/UZIApr",
+        "user_id": "1099896737919975424"
+      }
     }
   }
 }

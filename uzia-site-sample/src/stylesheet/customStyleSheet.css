@@ -1,14 +1,29 @@
-html, body, #root {
+html,
+body,
+#root {
   min-height: 100vh !important;
   display: flex;
-  flex-direction: column!important;
+  flex-direction: column !important;
+}
+
+/* Twitter setting */
+.twitter-color {
+  background-color: #1A8CD8;
+}
+
+.twitter-dm-button-custom svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+  fill: currentColor;
+  color: white;
 }
 
 .page-header-container {
   position: relative;
 }
 
-.page-header-container > .page-title {
+.page-header-container>.page-title {
   position: absolute;
   color: white;
   top: 50%;
@@ -16,7 +31,7 @@ html, body, #root {
   transform: translateX(-50%) translateY(-50%);
 }
 
-.page-header-container > .page-header {
+.page-header-container>.page-header {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,7 +41,7 @@ html, body, #root {
   position: relative;
 }
 
-.page-header-container > .page-header::before {
+.page-header-container>.page-header::before {
   width: 100%;
   height: 100%;
   content: "";
@@ -42,17 +57,17 @@ html, body, #root {
   position: relative;
 }
 
-.twitter-embed-container > * {
+.twitter-embed-container>* {
   position: absolute;
 }
 
-.twitter-embed-container > .twitter-embed-body {
+.twitter-embed-container>.twitter-embed-body {
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
-.twitter-embed-container > .twitter-embed-loading {
+.twitter-embed-container>.twitter-embed-loading {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -78,6 +93,6 @@ html, body, #root {
   border-top: var(--cui-footer-border);
 }
 
-.container + .footer {
-  margin-top: 5rem!important;
+.container+.footer {
+  margin-top: 5rem !important;
 }

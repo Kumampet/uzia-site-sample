@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import {
   HomeContentRow,
   TwitterEmbed,
+  HomeContact,
   CustomCarousel as Carousel
 } from '../components';
 import _get from 'lodash/get';
@@ -53,10 +54,11 @@ class Home extends React.Component {
             <Row>
               <Col>
                 <h2>Twitter</h2>
-                <TwitterEmbed height={700} sourceType="url" embedType="timeline" lang="ja" url={this.context.circleInfoData.sns.twitter}/>
+                <TwitterEmbed height={700} sourceType="url" embedType="timeline" lang="ja" url={this.context.circleInfoData.sns.twitter.timeline_url}/>
               </Col>
               <Col>
                 <h2>Contact</h2>
+                <HomeContact/>
               </Col>
             </Row>
           </div>
