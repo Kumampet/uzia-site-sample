@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/uzia-site-sample/static/css/main.6fe17728.css",
-    "main.js": "/uzia-site-sample/static/js/main.756c695e.js",
+    "main.css": "/uzia-site-sample/static/css/main.0fbe4140.css",
+    "main.js": "/uzia-site-sample/static/js/main.2e67681b.js",
     "index.html": "/uzia-site-sample/index.html",
-    "main.6fe17728.css.map": "/uzia-site-sample/static/css/main.6fe17728.css.map",
-    "main.756c695e.js.map": "/uzia-site-sample/static/js/main.756c695e.js.map"
+    "main.0fbe4140.css.map": "/uzia-site-sample/static/css/main.0fbe4140.css.map",
+    "main.2e67681b.js.map": "/uzia-site-sample/static/js/main.2e67681b.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fe17728.css",
-    "static/js/main.756c695e.js"
+    "static/css/main.0fbe4140.css",
+    "static/js/main.2e67681b.js"
   ]
 }
