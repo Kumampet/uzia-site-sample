@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CustomTwitterDMButton } from '../components';
+import { Image } from 'react-bootstrap';
 import AppContext from '../AppContext';
 
 class HomeContact extends Component {
@@ -13,7 +14,7 @@ class HomeContact extends Component {
   render() {
     const twitter_id = this.context.circleInfoData.sns.twitter.user_id;
     return (
-      <div className="text-center">
+      <div className="text-center d-flex flex-column justify-content-evenly align-items-center" style={{ height: "100%"}}>
         <p>当サークルへのお問い合わせはTwitter DMもしくはメールにお寄せください。</p>
         <div>
           <h3>Twitter DM</h3>
@@ -23,6 +24,7 @@ class HomeContact extends Component {
           <h3>Mail</h3>
           <p>mail@example.com</p>
         </div>
+        <Image width={250} fluid={true} rounded={true} src={`${process.env.PUBLIC_URL}/img/top_contact_catch.png`} />
       </div>
     )
   }
