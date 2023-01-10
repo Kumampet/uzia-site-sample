@@ -14,30 +14,83 @@ import DevelopMember from './static/DevelopMember.json';
 import CircleInfoData from './static/CircleInfo.json';
 
 import _get from 'lodash/get';
+import _merge from 'lodash/merge';
+import _forEach from 'lodash/forEach';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      breakPoints: {
+        xxl: 1400,
+        xl: 1200,
+        lg: 992,
+        md: 768,
+        sm: 576
+      }
+    }
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
-    this.breakPoint = ""
+    this.breakPoint = this.getWindowBreakPoint();
+    this.rootElement = document.getElementById('root');
   }
 
   componentDidMount() {
     this._isMountned = true;
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
     this._isMountned = false;
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+    this.breakPoint = this.getWindowBreakPoint();
+    this.setAttributeRootElement();
+  }
+
+  getWindowBreakPoint = () => {
+    const innerWidth = this.windowWidth;
+    const breakPoints = this.state.breakPoints;
+    let breakPoint;
+
+    if (breakPoints.xxl <= innerWidth) {
+      breakPoint = 'xxl';
+    } else if (breakPoints.xl <= innerWidth && innerWidth < breakPoints.xxl) {
+      breakPoint = 'xl';
+    } else if (breakPoints.lg <= innerWidth && innerWidth < breakPoints.xl) {
+      breakPoint = 'lg';
+    } else if (breakPoints.md <= innerWidth && innerWidth < breakPoints.lg) {
+      breakPoint = 'md';
+    } else if (breakPoints.sm <= innerWidth && innerWidth < breakPoints.md) {
+      breakPoint = 'sm';
+    } else {
+      breakPoint = 'xs';
+    }
+    return breakPoint;
+  }
+
+  setAttributeRootElement = (attributes = {}) => {
+    const defaultAttributes = {
+      breakPoint: this.breakPoint
+    }
+    const newAttributes = _merge(defaultAttributes, attributes);
+
+    _forEach(newAttributes, (value, key) => {
+      console.log({value, key})
+      this.rootElement.setAttribute(key, value);
+    });
   }
 
   // JSONデータの並べ替え。デフォルトは日付の新しい順(降順) 
-  sortJsonDataFromDate = (data, sort="desc") => {
+  sortJsonDataFromDate = (data, sort = "desc") => {
     try {
       if (!Array.isArray(data)) {
-        throw new Error("入力されたデータが配列ではありませんでした。配列を期待しています。");    
+        throw new Error("入力されたデータが配列ではありませんでした。配列を期待しています。");
       }
       if (sort === "desc") {
         return [...data].sort((a, b) => {
@@ -54,20 +107,15 @@ class App extends Component {
           return new Date(b) - new Date(a);
         });
       }
-    } catch(e) {
+    } catch (e) {
       console.log(e)
     }
   }
 
   get contextValue() {
     return {
-      breakPoints: {
-        xxl: 1400,
-        xl: 1200,
-        lg: 992,
-        md: 768,
-        sm: 576
-      },
+      breakPoints: this.state.breakPoints,
+      getBreakPoint: this.getWindowBreakPoint,
       circleInfoData: CircleInfoData.circle_info_data,
       navMenuData: NavmenuData.nav_menu_data,
       constentDatas: ContentDatas.contents_data,

@@ -45,23 +45,7 @@ class CardTile extends React.Component {
   }
 
   handleResize = () => {
-    const innerWidth = window.innerWidth;
-    const breakPoints = this.context.breakPoints;
-    let breakPoint;
-    console.log({ innerWidth })
-    if (breakPoints.xxl <= innerWidth) {
-      breakPoint = 'xxl';
-    } else if (breakPoints.xl <= innerWidth && innerWidth < breakPoints.xxl) {
-      breakPoint = 'xl';
-    } else if (breakPoints.lg <= innerWidth && innerWidth < breakPoints.xl) {
-      breakPoint = 'lg';
-    } else if (breakPoints.md <= innerWidth && innerWidth < breakPoints.lg) {
-      breakPoint = 'md';
-    } else if (breakPoints.sm <= innerWidth && innerWidth < breakPoints.md) {
-      breakPoint = 'sm';
-    } else {
-      breakPoint = 'xs';
-    }
+    const breakPoint = this.context.getBreakPoint();
     this.setState({ breakPoint });
   }
 
