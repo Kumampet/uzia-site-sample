@@ -11,3 +11,4 @@ export { default as Game } from './Game';
 export { default as Contact } from './Contact';
 export { default as PageHeaderImage } from './PageHeaderImage';
 export { default as AboutDevelopMember } from './AboutDevelopMember';
+export { default as TwitterEmbed } from './TwitterEmbed';

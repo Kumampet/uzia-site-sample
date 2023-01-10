@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppContext from '../AppContext';
-
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import {
   HomeContentRow,
+  TwitterEmbed,
   CustomCarousel as Carousel
 } from '../components';
 import _get from 'lodash/get';
@@ -43,8 +43,23 @@ class Home extends React.Component {
           <Carousel items={carouselItems} defaultTheme="dark" />
         ) : null}
         <Container>
-          <HomeContentRow title="LATEST CONTENTS" displayType="card" contentTypeKey="latest_conntents" contentItems={this.context.constentDatas.data}/>
-          <HomeContentRow title="LATEST NEWS" displayType="card" contentTypeKey="latest_news" contentItems={this.context.newsDatas.data}/>
+          <div className="mt-5">
+            <HomeContentRow title="LATEST CONTENTS" displayType="card" contentTypeKey="latest_conntents" contentItems={this.context.constentDatas.data} />
+          </div>
+          <div className="mt-5">
+            <HomeContentRow title="LATEST NEWS" displayType="card" contentTypeKey="latest_news" contentItems={this.context.newsDatas.data} />
+          </div>
+          <div className="mt-5">
+            <Row>
+              <Col>
+                <h2>Twitter</h2>
+                <TwitterEmbed height={700} sourceType="url" embedType="timeline" lang="ja" url={this.context.circleInfoData.sns.twitter}/>
+              </Col>
+              <Col>
+                <h2>Contact</h2>
+              </Col>
+            </Row>
+          </div>
         </Container>
       </React.Fragment>
     );

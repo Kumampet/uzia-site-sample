@@ -12,6 +12,7 @@ import NavmenuData from './static/Navmanu.json';
 import ContentDatas from './static/Contents.json';
 import NewsDatas from './static/News.json';
 import DevelopMember from './static/DevelopMember.json';
+import CircleInfoData from './static/CircleInfo.json';
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends Component {
         md: 768,
         sm: 576
       },
+      circleInfoData: CircleInfoData.circle_info_data,
       navMenuData: NavmenuData.nav_menu_data,
       constentDatas: ContentDatas.contents_data,
       newsDatas: NewsDatas.news_data,

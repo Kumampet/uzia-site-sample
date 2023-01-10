@@ -37,6 +37,27 @@ html, body, #root {
   display: block;
 }
 
+/* Twitter Embed */
+.twitter-embed-container {
+  position: relative;
+}
+
+.twitter-embed-container > * {
+  position: absolute;
+}
+
+.twitter-embed-container > .twitter-embed-body {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.twitter-embed-container > .twitter-embed-loading {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .footer {
   margin-top: auto !important;
   --cui-footer-min-height: 3rem;
@@ -55,4 +76,8 @@ html, body, #root {
   color: var(--cui-footer-color);
   background: var(--cui-footer-bg);
   border-top: var(--cui-footer-border);
+}
+
+.container + .footer {
+  margin-top: 5rem!important;
 }
