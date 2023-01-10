@@ -116,11 +116,12 @@ class CardTile extends React.Component {
     const linkText = _get(content, 'link.text');
     const linkHref = _get(content, 'link.href');
 
+    // itemに直接bodyエレメントがあればそちらを優先する
     const cardBody = _get(content, 'content_body') || (
       <Card.Body>
         {title && <Card.Title>{title}</Card.Title>}
         {text && <Card.Text className={classnames(`card-text-${option.index}`, `content-type-key-${option.contentTypeKey}`)}>{text}</Card.Text>}
-        {linkText && linkText && <Button variant="primary" href={linkHref}>{linkText}</Button>}
+        {linkText && linkHref && <Button variant="primary" href={linkHref}>{linkText}</Button>}
       </Card.Body>
     )
 
