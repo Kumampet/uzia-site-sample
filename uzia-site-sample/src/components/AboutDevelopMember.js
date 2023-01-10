@@ -31,7 +31,7 @@ class AboutDevelopMember extends React.Component {
     console.log({ memberInfos })
     _forEach(memberInfos, (info, index) => {
       const newInfo = info;
-      const id = _get(newInfo, "id");
+      // const id = _get(newInfo, "id");
       const name = _get(newInfo, "name", "<No Name...>");
       const text = _get(newInfo, "text");
       const twitter = _get(newInfo, "twitter");
