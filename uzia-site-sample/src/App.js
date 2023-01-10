@@ -13,6 +13,9 @@ import NewsDatas from './static/News.json';
 import DevelopMember from './static/DevelopMember.json';
 import CircleInfoData from './static/CircleInfo.json';
 
+import _get from 'lodash/get';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +33,32 @@ class App extends Component {
     this._isMountned = false;
   }
 
+  // JSONデータの並べ替え。デフォルトは日付の新しい順(降順) 
+  sortJsonDataFromDate = (data, sort="desc") => {
+    try {
+      if (!Array.isArray(data)) {
+        throw new Error("入力されたデータが配列ではありませんでした。配列を期待しています。");    
+      }
+      if (sort === "desc") {
+        return [...data].sort((a, b) => {
+          if (!_get(b, "update_date") || !_get(a, "update_date")) {
+            throw new Error("update_dateがありません。", a, b);
+          }
+          return new Date(b.update_date) - new Date(a.update_date);
+        });
+      } else {
+        return [...data].sort((a, b) => {
+          if (!_get(b, "update_date") || !_get(a, "update_date")) {
+            throw new Error("update_dateがありません。", a, b);
+          }
+          return new Date(b) - new Date(a);
+        });
+      }
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
   get contextValue() {
     return {
       breakPoints: {
@@ -42,7 +71,8 @@ class App extends Component {
       circleInfoData: CircleInfoData.circle_info_data,
       navMenuData: NavmenuData.nav_menu_data,
       constentDatas: ContentDatas.contents_data,
-      newsDatas: NewsDatas.news_data,
+      newsData: NewsDatas.news_data,
+      newsDataItems: this.sortJsonDataFromDate(NewsDatas.news_data.data),
       developMemberDatas: DevelopMember.develop_member_datas,
       locationPathName: window.location.pathname
     }

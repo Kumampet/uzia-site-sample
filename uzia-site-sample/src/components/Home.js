@@ -58,7 +58,7 @@ class Home extends React.Component {
               title="LATEST NEWS"
               displayType="card"
               contentTypeKey="latest_news"
-              contentItems={this.context.newsDatas.data}
+              contentItems={this.context.newsDataItems}
             />
           </div>
           <div className="mt-5 home-info">
