@@ -82,6 +82,11 @@ body,
   transform: translate(-50%, -50%);
 }
 
+/* News Gallery */
+.news-list-group-contents p {
+  margin: 0;
+}
+
 .footer {
   margin-top: auto !important;
   --cui-footer-min-height: 3rem;
