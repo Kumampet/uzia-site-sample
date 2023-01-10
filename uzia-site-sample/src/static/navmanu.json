@@ -5,13 +5,18 @@
       "menuLists": [
         {
           "type": "link",
-          "name": "home",
+          "name": "Home",
           "href": "/"
         },
         {
           "type": "link",
-          "name": "about",
+          "name": "About",
           "href": "/about"
+        },
+        {
+          "type": "link",
+          "name": "News",
+          "href": "/news"
         },
         {
           "type": "link",

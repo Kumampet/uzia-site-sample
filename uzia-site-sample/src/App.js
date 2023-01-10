@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import {
   CustomNavbar as Navbar,
   CustomFooter as Footer,
-  Home, About, Game, Contact
+  Home, About, Game, Contact, News
 } from './components';
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import _forEach from 'lodash/forEach';
 
 import NavmenuData from './static/Navmanu.json';
 import ContentDatas from './static/Contents.json';
@@ -60,6 +59,9 @@ class App extends Component {
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
+          </Route>
+          <Route path={`${process.env.PUBLIC_URL}/news`}>
+            <News />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/contents`}>
             <Game />
