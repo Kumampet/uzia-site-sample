@@ -51,7 +51,7 @@ class Home extends React.Component {
             <HomeContentRow title="LATEST NEWS" displayType="card" contentTypeKey="latest_news" contentItems={this.context.newsDatas.data} />
           </div>
           <div className="mt-5">
-            <Row>
+            <Row xs={1} sm={1} md={2}>
               <Col>
                 <h2>Twitter</h2>
                 <TwitterEmbed height={700} sourceType="url" embedType="timeline" lang="ja" url={this.context.circleInfoData.sns.twitter.timeline_url}/>
