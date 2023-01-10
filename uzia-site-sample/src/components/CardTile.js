@@ -82,14 +82,15 @@ class CardTile extends React.Component {
         flex: defaultFlex || false
       };
 
-      // 画面サイズがsm, csの場合は表示上限を変更し、カード内部の画像を横並びにする
-      if (_breakPoint === "sm") {
+      // 画面サイズがsm, xsの場合は表示上限を変更し
+      if (_breakPoint === "sm" || _breakPoint === "xs") {
         threshold = xsThreshold;
-        option.flex = true;
+        if (_breakPoint === "sm") {
+          //smの場合は要素を横並び
+          option.flex = true;
+        }
       } else if (_breakPoint === "md") {
         threshold = mdThreshold;
-      } else if (_breakPoint === "xs") {
-        option.flex = false;
       }
 
 
