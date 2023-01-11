@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {
   TwitterTimelineEmbed,
@@ -27,6 +28,7 @@ class TwitterEmbed extends React.Component {
     const { embedType, sourceType, height, lang, url, recipientId } = this.props;
     let embed = null;
     let loading = false;
+    let style = {};
 
 
     if (embedType === 'timeline') {
@@ -41,6 +43,7 @@ class TwitterEmbed extends React.Component {
           url={url}
         />
       )
+      style = { height: `${height}px` }
     }
     if (embedType === 'dm_button') {
       embed = (
@@ -56,7 +59,7 @@ class TwitterEmbed extends React.Component {
     }
 
     return (
-      <div className="twitter-embed-container"  style={{ height: `${height}px` }}>
+      <div className={classnames("twitter-embed-container", {"timeline" : embedType === 'timeline'})}  style={style}>
         <div className="twitter-embed-body">
           {embed}
         </div>

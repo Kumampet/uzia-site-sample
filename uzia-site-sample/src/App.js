@@ -7,7 +7,7 @@ import {
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import NavmenuData from './static/Navmanu.json';
+import NavmenuData from './static/Navmenu.json';
 import ContentDatas from './static/Contents.json';
 import NewsDatas from './static/News.json';
 import DevelopMember from './static/DevelopMember.json';

@@ -78,12 +78,12 @@ body,
   position: relative;
 }
 
-#root[breakpoint="xs"] .twitter-embed-container {
+#root[breakpoint="xs"] .twitter-embed-container.timeline {
   width: 80%;
   margin: 0 auto;
 }
 
-.twitter-embed-container>* {
+.twitter-embed-container.timeline>* {
   position: absolute;
 }
 

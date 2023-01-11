@@ -14,13 +14,13 @@ class HomeContact extends Component {
   render() {
     const twitter_id = this.context.circleInfoData.sns.twitter.user_id;
     return (
-      <div className="text-center d-flex flex-column justify-content-evenly align-items-center" style={{ height: "100%"}}>
+      <div className="d-flex flex-column justify-content-evenly align-items-center" style={{ height: "100%"}}>
         <p>当サークルへのお問い合わせはTwitter DMもしくはメールにお寄せください。</p>
-        <div className="text-nowrap">
+        <div className="text-nowrap text-center ">
           <h3>Twitter DM</h3>
           <TwitterEmbed embedType="dm_button" recipientId={twitter_id} />
         </div>
-        <div className="mail">
+        <div className="mail text-center ">
           <h3>Mail</h3>
           <p>mail@example.com</p>
         </div>
