@@ -6,6 +6,8 @@ import ja from 'dayjs/locale/ja';
 
 import _get from 'lodash/get';
 
+import { Link } from 'react-router-dom';
+
 // dayjsの日本語対応
 dayjs.locale(ja);
 
@@ -34,7 +36,7 @@ class NewsGallery extends React.Component {
               )}
               <p>{summary}</p>
             </div>
-            <div className="ps-3 text-nowrap" style={{ placeSelf: "end"}}>
+            <div className="ps-3 text-nowrap" style={{ placeSelf: "end" }}>
               <p>read more →</p>
             </div>
           </div>

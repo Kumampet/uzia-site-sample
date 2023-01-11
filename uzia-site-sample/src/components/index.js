@@ -9,6 +9,8 @@ export { default as CardTile } from './CardTile';
 export { default as About } from './About';
 export { default as News } from './News';
 export { default as NewsGallery } from './NewsGallery';
+export { default as NewsPage } from './NewsPage';
+export { default as NewsArticle } from './NewsArticle';
 export { default as Game } from './Game';
 export { default as Contact } from './Contact';
 export { default as PageHeaderImage } from './PageHeaderImage';

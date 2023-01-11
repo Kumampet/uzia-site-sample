@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   CustomNavbar as Navbar,
   CustomFooter as Footer,
-  Home, About, Game, Contact, News
+  Home, About, Game, Contact, News, NewsPage
 } from './components';
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -133,15 +133,16 @@ class App extends Component {
       <AppContext.Provider value={this.contextValue}>
         <Navbar navMenuData={this.contextValue.navMenuData.data} />
         <Router>
-          <Route path={`${process.env.PUBLIC_URL}/`} exact>
+          <Route exact path={`${process.env.PUBLIC_URL}/`}>
             <Home />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/news`}>
+          <Route exact path={`${process.env.PUBLIC_URL}/news`}>
             <News />
           </Route>
+          <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage}/>
           <Route path={`${process.env.PUBLIC_URL}/contents`}>
             <Game />
           </Route>
