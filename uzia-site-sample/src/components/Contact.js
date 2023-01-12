@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { PageHeaderImage, TwitterEmbed } from '../components';
+import { PageHeaderImage, TwitterEmbed, FormBase } from '../components';
 import { Button, Card, Row, Col } from 'react-bootstrap';
 import AppContext from '../AppContext';
 import _get from 'lodash/get';
@@ -40,7 +40,7 @@ class Contact extends React.Component {
                       <Card.Body className='card-body'>
                         <Card.Text>当サークル公式TwitterのDMよりお問い合わせをお受けしております。</Card.Text>
                         {recipientId && (
-                          <TwitterEmbed embedType="dm_button" recipientId={recipientId}/>
+                          <TwitterEmbed embedType="dm_button" recipientId={recipientId} />
                         )}
                       </Card.Body>
                     </Col>
@@ -52,7 +52,7 @@ class Contact extends React.Component {
                 <Card>
                   <Card.Body>
                     <Card.Text>当サークルのお問い合わせフォームです。ご連絡可能なメールアドレス必須です。</Card.Text>
-                    <h1>工事中</h1>
+                    <FormBase />
                   </Card.Body>
                 </Card>
               </Col>
