@@ -45,6 +45,28 @@
           "href": "/",
           "text": "くわしく"
         },
+        "paragraphs": [
+          {
+            "type": "text",
+            "value": "段落です。ここにニュース詳細が入ります。あああああああああああ"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/yukidaruma.png"
+          },
+          {
+            "type":"text",
+            "value": "これは雪だるまです。可愛いですね"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/fujisan.png"
+          },
+          {
+            "type":"text",
+            "value": "This is Mt.Fuji.... it's so beautiful...."
+          }
+        ],
         "update_date": "2021-01-20T00:00:00.000Z"
       },
       {
@@ -59,6 +81,24 @@
           "href": "/",
           "text": "くわしく"
         },
+        "paragraphs": [
+          {
+            "type": "text",
+            "value": "段落です。ここにニュース詳細が入ります。"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/gorira.png"
+          },
+          {
+            "type":"text",
+            "value": "これはゴリラです。強そうですね。"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/usagi.png"
+          }
+        ],
         "update_date": "2022-01-01T00:00:00.000Z"
       },
       {
@@ -73,6 +113,28 @@
           "href": "/",
           "text": "くわしく"
         },
+        "paragraphs": [
+          {
+            "type": "text",
+            "value": "段落です。ここにニュース詳細が入ります。あああああああああああ"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/yukidaruma.png"
+          },
+          {
+            "type":"text",
+            "value": "これは雪だるまです。可愛いですね"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/fujisan.png"
+          },
+          {
+            "type":"text",
+            "value": "This is Mt.Fuji.... it's so beautiful...."
+          }
+        ],
         "update_date": "2023-01-01T00:00:00.000Z"
       }
     ]

@@ -18,7 +18,7 @@ class NewsArticle extends React.Component {
 	}
 
 	render() {
-		const { newsData } = this.state;
+		const { newsData, id } = this.state;
 		const title = newsData.title;
 		const paragraphs = newsData.paragraphs;
 
@@ -26,6 +26,7 @@ class NewsArticle extends React.Component {
 			<div className="news-article-container">
 				<Image className='mt-0 mx-auto d-block' src={`${process.env.PUBLIC_URL}/img/page_header/mori.png`} rounded thumbnail />
 				<div className="mt-5 news-article-body">
+					<span>ID:{id}</span>
 					<h1>{title}</h1>
 					<div className="news-article-paragraph">
 						{_map(paragraphs, (paragraph, index) => {
