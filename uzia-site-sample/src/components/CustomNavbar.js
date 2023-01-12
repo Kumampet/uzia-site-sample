@@ -3,19 +3,18 @@ import React, { Component } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _isEmpty from 'lodash/isEmpty';
+import { replaceURLPublicPath } from '../common';
 
 class CustomNavbar extends Component {
   constructor(props) {
     super(props);
-    let basePath = process.env.PUBLIC_URL;
     this.state = {
       fixed: props.fixed,
       sticky: props.sticky,
       bg: props.bg || 'light',
       expand: props.size || 'md',
       navNemuData: props.navMenuData,
-      navbarMenus: [],
-      basePath: basePath
+      navbarMenus: []
     }
   }
 
@@ -59,10 +58,9 @@ class CustomNavbar extends Component {
   }
 
   createNavbarLink = (menuLink = {}) => {
-    const basePath = this.state.basePath;
     const linkName = menuLink.name;
-    const linkHref = menuLink.href;
-    return linkName && linkHref ? <Nav.Link href={basePath + linkHref}>{linkName}</Nav.Link> : null;
+    const linkHref = replaceURLPublicPath(menuLink.href);
+    return linkName && linkHref ? <Nav.Link href={linkHref}>{linkName}</Nav.Link> : null;
   }
 
   createNavbarDropdown = (dropdown = {}) => {
@@ -93,10 +91,9 @@ class CustomNavbar extends Component {
   }
 
   createNavbarDropdownItem = (item = {}) => {
-    const basePath = this.state.basePath;
     const itemName = item.name;
-    const itemHref = item.href;
-    return itemName && itemHref ? <NavDropdown.Item href={basePath + itemHref}>{itemName}</NavDropdown.Item> : null;
+    const itemHref = replaceURLPublicPath(item.href);
+    return itemName && itemHref ? <NavDropdown.Item href={itemHref}>{itemName}</NavDropdown.Item> : null;
   }
 
   render() {
@@ -105,7 +102,7 @@ class CustomNavbar extends Component {
     return (
       <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
         <Container>
-          <Navbar.Brand href={`${basePath}/`}>{brandTitle}</Navbar.Brand>
+          <Navbar.Brand href={replaceURLPublicPath("/")}>{brandTitle}</Navbar.Brand>
           {!_isEmpty(navbarMenus) && (
             <React.Fragment>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />

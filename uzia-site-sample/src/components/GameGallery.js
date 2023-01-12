@@ -4,6 +4,7 @@ import { ListGroup } from 'react-bootstrap';
 import dayjs from 'dayjs';
 import ja from 'dayjs/locale/ja';
 import _get from 'lodash/get';
+import { replaceURLPublicPath } from '../common';
 
 // dayjsの日本語対応
 dayjs.locale(ja);
@@ -21,7 +22,7 @@ class GameGallery extends React.Component {
       const id = _get(item, 'id');
       const title = _get(item, 'title');
       const summary = _get(item, 'summary');
-      const href = `${process.env.PUBLIC_URL}/news/${id}`;
+      const href = replaceURLPublicPath(`/game/${id}`);
       const updateDate = _get(item, 'update_date');
       return (
         <ListGroup.Item action href={href} className="news-list-group-contents">

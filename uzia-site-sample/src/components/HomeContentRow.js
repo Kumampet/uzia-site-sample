@@ -4,6 +4,7 @@ import { CardTile } from '../components';
 import { Button, Card } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';
+import { replaceURLPublicPath } from '../common';
 
 class HomeContentRow extends React.Component {
   constructor(props) {
@@ -21,14 +22,14 @@ class HomeContentRow extends React.Component {
       const id = _get(item, 'id');
       const title = _get(item, "title");
       const summary = _get(item, "summary");
-      const allVirePath = _get(this.props, "allViewPath", process.env.PUBLIC_URL);
+      const allVirePath = _get(this.props, "allViewPath");
 
       // CardTextは最大4行。超過した場合は...表記
       const newBody = (
         <Card.Body className="home-content-row-card-body">
           <Card.Title>{title}</Card.Title>
           <Card.Text className={classnames(`card-text-${index}`, `content-type-key-${contentTypeKey} line-clamp-4`)}>{summary}</Card.Text>
-          <Button href={`${allVirePath}/${id}`}>くわしく</Button>
+          <Button href={replaceURLPublicPath(`${allVirePath}/${id}`)}>くわしく</Button>
         </Card.Body>
       );
       item.content_body = newBody;

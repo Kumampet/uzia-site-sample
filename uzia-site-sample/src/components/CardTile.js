@@ -6,6 +6,7 @@ import _isEmpty from 'lodash/isEmpty';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';
 import AppContext from '../AppContext';
+import { replaceURLPublicPath } from '../common';
 
 class CardTile extends React.Component {
   static contextType = AppContext;
@@ -94,11 +95,11 @@ class CardTile extends React.Component {
   }
 
   createCardElements = (content, option) => {
-    const cardImg = _get(content, 'poster.card');
+    const imgPath = replaceURLPublicPath(_get(content, 'poster.card'));
     const title = _get(content, 'title');
     const text = _get(content, 'text');
     const linkText = _get(content, 'link.text');
-    const linkHref = _get(content, 'link.href');
+    const linkHref = replaceURLPublicPath(_get(content, 'link.href'));
 
     // itemに直接bodyエレメントがあればそちらを優先する
     const cardBody = _get(content, 'content_body') || (
@@ -114,9 +115,9 @@ class CardTile extends React.Component {
         <Card>
           {option.flex ? (
             <Row>
-              {cardImg && (
+              {imgPath && (
                 <Col>
-                  <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+                  <Card.Img variant="top" src={imgPath} />
                 </Col>
               )}
               <Col>
@@ -125,9 +126,9 @@ class CardTile extends React.Component {
             </Row>
           ) : (
             <React.Fragment>
-              {cardImg && (
+              {imgPath && (
                 <Col>
-                  <Card.Img variant="top" src={process.env.PUBLIC_URL + cardImg} />
+                  <Card.Img variant="top" src={imgPath} />
                 </Col>
               )}
               {cardBody}

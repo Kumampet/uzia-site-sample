@@ -9,7 +9,7 @@ import {
 } from '../components';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
-
+import { replaceURLPublicPath } from '../common';
 import topCarouselInfo from '../static/topCarouselInfo.json';
 
 class Home extends React.Component {
@@ -44,7 +44,7 @@ class Home extends React.Component {
         <Container>
           <div className="mt-5">
             <HomeContentRow
-              allViewPath={`${process.env.PUBLIC_URL}/game`}
+              allViewPath={replaceURLPublicPath(`${process.env.PUBLIC_URL}/game`)}
               title="LATEST GAME"
               displayType="card"
               contentTypeKey="latest_conntents"
@@ -53,7 +53,7 @@ class Home extends React.Component {
           </div>
           <div className="mt-5">
             <HomeContentRow
-              allViewPath={`${process.env.PUBLIC_URL}/news`}
+              allViewPath={replaceURLPublicPath(`${process.env.PUBLIC_URL}/news`)}
               title="LATEST NEWS"
               displayType="card"
               contentTypeKey="latest_news"

@@ -3,7 +3,6 @@ import { Carousel } from 'react-bootstrap';
 import { replaceURLPublicPath } from '../common';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';
-import _includes from 'lodash/includes';
 
 class CustomCarousel extends React.Component {
   constructor(props) {
