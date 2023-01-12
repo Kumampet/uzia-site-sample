@@ -33,7 +33,13 @@ class NewsArticle extends React.Component {
 							if (paragraph.type === 'text') {
 								return <p key={`p-${index}`}>{paragraph.value}</p>
 							} else if (paragraph.type === 'image') {
-								return <Image key={`img-${index}`} className='mx-auto d-block' src={paragraph.value} rounded thumbnail />
+								let imageSrc = "";
+								if (_includes(imageSrc, "http") || _includes(imageSrc, "https")) {
+									imageSrc = paragraph.value;
+								} else {
+									imageSrc = process.env.PUBLIC_URL + paragraph.value;
+                }
+								return <Image key={`img-${index}`} className='mx-auto d-block' src={imageSrc} rounded thumbnail />
 							}
 						})}
 					</div>
