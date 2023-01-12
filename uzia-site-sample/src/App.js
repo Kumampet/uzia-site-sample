@@ -135,22 +135,12 @@ class App extends Component {
       <AppContext.Provider value={this.contextValue}>
         <Navbar navMenuData={this.contextValue.navMenuData.data} />
         <Router>
-          <Route exact path={`${process.env.PUBLIC_URL}/`}>
-            <Home />
-          </Route>
-          <Route path={`${process.env.PUBLIC_URL}/about`}>
-            <About />
-          </Route>
-          <Route exact path={`${process.env.PUBLIC_URL}/news`}>
-            <News />
-          </Route>
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
+          <Route path={`${process.env.PUBLIC_URL}/about`} component={About}/>
+          <Route exact path={`${process.env.PUBLIC_URL}/news`} component={News}/>
           <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/contents`}>
-            <Game />
-          </Route>
-          <Route exact path={`${process.env.PUBLIC_URL}/contact`}>
-            <Contact />
-          </Route>
+          <Route exact path={`${process.env.PUBLIC_URL}/contents`} component={Game}/>
+          <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
         </Router>
         <Footer />
       </AppContext.Provider>
