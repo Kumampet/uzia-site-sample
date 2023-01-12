@@ -145,10 +145,10 @@ class App extends Component {
             <News />
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage}/>
-          <Route path={`${process.env.PUBLIC_URL}/contents`}>
+          <Route exact path={`${process.env.PUBLIC_URL}/contents`}>
             <Game />
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/contact`}>
+          <Route exact path={`${process.env.PUBLIC_URL}/contact`}>
             <Contact />
           </Route>
         </Router>
