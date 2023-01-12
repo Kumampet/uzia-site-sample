@@ -30,7 +30,7 @@ class NewsPage extends React.Component {
       <React.Fragment>
         <Container>
           <div className="mt-5">
-            <NewsArticle newsData={this.getNewsInfoFromId(newsId)} />
+            <NewsArticle id={newsId} newsData={this.getNewsInfoFromId(newsId)} />
           </div>
         </Container>
       </React.Fragment>

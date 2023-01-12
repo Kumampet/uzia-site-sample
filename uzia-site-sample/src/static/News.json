@@ -6,6 +6,24 @@
         "title": "News TEST Title",
         "summary": "ここにニュースのサマリーが入ります。一行程度で簡潔に伝わる文章が好ましいです。",
         "text": "ここにニュース詳細が入ります。初期段階では改行等には対応していません。ここにニュース詳細が入ります。初期段階では改行等には対応していません。ここにニュース詳細が入ります。初期段階では改行等には対応していません。ここにニュース詳細が入ります。初期段階では改行等には対応していません。ここにニュース詳細が入ります。初期段階では改行等には対応していません。",
+        "paragraphs": [
+          {
+            "type": "text",
+            "value": "段落です。ここにニュース詳細が入ります。"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/gorira.png"
+          },
+          {
+            "type":"text",
+            "value": "これはゴリラです。強そうですね。"
+          },
+          {
+            "type": "image",
+            "value": "/img/news/usagi.png"
+          }
+        ],
         "poster": {
           "card": "/img/top_latest_content/cardtile_img.png"
         },

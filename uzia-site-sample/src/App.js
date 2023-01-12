@@ -47,6 +47,7 @@ class App extends Component {
     window.removeEventListener('resize', this.handleResize);
   }
 
+  // ウィンドウサイズが変わったときに逐次呼び出される
   handleResize = () => {
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
@@ -54,6 +55,7 @@ class App extends Component {
     this.setAttributeRootElement();
   }
 
+  // Windowのブレイクポイントを取得する
   getWindowBreakPoint = () => {
     const innerWidth = this.windowWidth;
     const breakPoints = this.state.breakPoints;
@@ -75,6 +77,7 @@ class App extends Component {
     return breakPoint;
   }
 
+  // root elementに属性を追加する
   setAttributeRootElement = (attributes = {}) => {
     const defaultAttributes = {
       breakPoint: this.breakPoint
@@ -82,7 +85,6 @@ class App extends Component {
     const newAttributes = _merge(defaultAttributes, attributes);
 
     _forEach(newAttributes, (value, key) => {
-      console.log({value, key})
       this.rootElement.setAttribute(key, value);
     });
   }
