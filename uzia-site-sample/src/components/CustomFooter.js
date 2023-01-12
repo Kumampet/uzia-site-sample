@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import AppContext from '../AppContext';
 import { CFooter } from '@coreui/react';
 import dayjs from 'dayjs';
-import commonTextLables from '../static/commonTextLabels.json';
 
 class CustomFooter extends Component {
+  static contextType = AppContext;
   constructor(props) {
     super(props);
-    this.state = {
-      commonTextLables: commonTextLables.common
-    }
+    this.state = {}
   }
 
   componentDidMount() {
@@ -27,11 +26,12 @@ class CustomFooter extends Component {
   }
 
   render() {
-    const { nowYear, commonTextLables } = this.state;
+    const { nowYear } = this.state;
+    const circleName = this.context.circleInfoData.circle_name;
     return (
       <CFooter>
         <div>
-          <span>&copy; 2019-{nowYear} {commonTextLables.circle_info.circle_name}</span>
+          <span>&copy; 2019-{nowYear} {circleName}</span>
         </div>
       </CFooter>
     );

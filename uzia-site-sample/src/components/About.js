@@ -16,13 +16,13 @@ class About extends React.Component {
 
   render() {
     const { pageTitle } = this.state;
-
+    const circleName = this.context.circleInfoData.circle_name;
     return (
       <React.Fragment>
         <PageHeaderImage pageTitle={pageTitle} backgroundImageSource={`${process.env.PUBLIC_URL}/img/page_header/umi.png`}/>
         <Container>
           <div className="mt-5">
-            <h2>サークル「ユーザイア アボカド農園」について</h2>
+            <h2>サークル「{circleName}」について</h2>
             <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。</p>
           </div>
 
