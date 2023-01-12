@@ -36,7 +36,6 @@ class Home extends React.Component {
 
   render() {
     const { carouselItems } = this.state;
-    console.log(this.context)
     return (
       <React.Fragment>
         {!_isEmpty(carouselItems) ? (

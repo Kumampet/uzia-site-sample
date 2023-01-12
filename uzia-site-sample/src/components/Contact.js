@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { PageHeaderImage } from '../components';
+import { PageHeaderImage, TwitterEmbed } from '../components';
 import { Button, Card, Row, Col } from 'react-bootstrap';
+import AppContext from '../AppContext';
+import _get from 'lodash/get';
 
 class Contact extends React.Component {
+  static contextType = AppContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +17,7 @@ class Contact extends React.Component {
 
   render() {
     const { pageTitle } = this.state;
-
+    const recipientId = _get(this.context, "circleInfoData.sns.twitter.user_id");
     return (
       <React.Fragment>
         <PageHeaderImage pageTitle={pageTitle} backgroundImageSource={`${process.env.PUBLIC_URL}/img/page_header/mori.png`} />
@@ -35,7 +39,9 @@ class Contact extends React.Component {
                     <Col>
                       <Card.Body className='card-body'>
                         <Card.Text>当サークル公式TwitterのDMよりお問い合わせをお受けしております。</Card.Text>
-                        <Button variant="primary" href="/">Twitter DMはこちら</Button>
+                        {recipientId && (
+                          <TwitterEmbed embedType="dm_button" recipientId={recipientId}/>
+                        )}
                       </Card.Body>
                     </Col>
                   </Row>
