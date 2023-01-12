@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { PageHeaderImage, TwitterEmbed, FormBase } from '../components';
-import { Button, Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import AppContext from '../AppContext';
 import _get from 'lodash/get';
 

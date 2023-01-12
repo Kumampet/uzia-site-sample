@@ -1,9 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
 import AppConntext from '../AppContext';
-import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
-import _forEach from 'lodash/forEach';
 import _includes from 'lodash/includes';
 import _map from 'lodash/map';
 

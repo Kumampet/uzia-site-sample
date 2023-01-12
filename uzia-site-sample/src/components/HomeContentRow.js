@@ -1,10 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import { CardTile } from '../components';
-import { Row, Button, Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';
-import _replace from 'lodash/replace';
 
 class HomeContentRow extends React.Component {
   constructor(props) {

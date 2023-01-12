@@ -1,12 +1,9 @@
 import React from 'react';
 import AppContext from '../AppContext';
-import { ListGroup, Row, Col } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import dayjs from 'dayjs';
 import ja from 'dayjs/locale/ja';
-
 import _get from 'lodash/get';
-
-import { Link } from 'react-router-dom';
 
 // dayjsの日本語対応
 dayjs.locale(ja);
