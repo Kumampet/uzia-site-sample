@@ -12,6 +12,7 @@ export { default as NewsGallery } from './NewsGallery';
 export { default as NewsPage } from './NewsPage';
 export { default as NewsArticle } from './NewsArticle';
 export { default as Game } from './Game';
+export { default as GameGallery } from './GameGallery';
 export { default as Contact } from './Contact';
 export { default as PageHeaderImage } from './PageHeaderImage';
 export { default as AboutDevelopMember } from './AboutDevelopMember';
