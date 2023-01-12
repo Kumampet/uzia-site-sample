@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-tweet-embed": "^2.0.0",
     "react-twitter-embed": "^4.0.4",
+    "sass": "^1.57.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
