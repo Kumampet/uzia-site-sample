@@ -44,8 +44,8 @@ class Home extends React.Component {
         <Container>
           <div className="mt-5">
             <HomeContentRow
-              allViewPath={`${process.env.PUBLIC_URL}/contents`}
-              title="LATEST CONTENTS"
+              allViewPath={`${process.env.PUBLIC_URL}/game`}
+              title="LATEST GAME"
               displayType="card"
               contentTypeKey="latest_conntents"
               contentItems={this.context.constentDatas.data}

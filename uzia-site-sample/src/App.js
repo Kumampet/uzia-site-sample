@@ -8,7 +8,7 @@ import AppContext from './AppContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavmenuData from './static/Navmenu.json';
-import ContentDatas from './static/Contents.json';
+import GameDatas from './static/Games.json';
 import NewsDatas from './static/News.json';
 import DevelopMember from './static/DevelopMember.json';
 import CircleInfoData from './static/CircleInfo.json';
@@ -121,7 +121,7 @@ class App extends Component {
       getBreakPoint: this.getWindowBreakPoint,
       circleInfoData: CircleInfoData.circle_info_data,
       navMenuData: NavmenuData.nav_menu_data,
-      constentDatas: ContentDatas.contents_data,
+      constentDatas: GameDatas.contents_data,
       newsData: NewsDatas.news_data,
       newsDataItems: this.sortJsonDataFromDate(NewsDatas.news_data.data),
       developMemberDatas: DevelopMember.develop_member_datas,
@@ -139,7 +139,7 @@ class App extends Component {
           <Route path={`${process.env.PUBLIC_URL}/about`} component={About}/>
           <Route exact path={`${process.env.PUBLIC_URL}/news`} component={News}/>
           <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/contents`} component={Game}/>
+          <Route exact path={`${process.env.PUBLIC_URL}/game`} component={Game}/>
           <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
         </Router>
         <Footer />
