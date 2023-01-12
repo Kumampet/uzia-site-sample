@@ -72,8 +72,8 @@ class AboutDevelopMember extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>開発メンバー</h2>
-        <CardTile contentItems={this.generateMemberInfos()} contentTypeKey="member" lgThreshold={2} mdThreshold={1} />
+        <h2>開発メンバー(準備中)</h2>
+        {/* <CardTile contentItems={this.generateMemberInfos()} contentTypeKey="member" lgThreshold={2} mdThreshold={1} /> */}
       </React.Fragment>
     );
   }
