@@ -28,18 +28,11 @@ class NewsGallery extends React.Component {
       const updateDate = _get(item, 'update_date');
       return (
         <ListGroup.Item action href={href} className="news-list-group-contents">
-          <div className="d-flex justify-content-between align-self-end">
-            <div>
-              <h3>{title}</h3>
-              {updateDate && (
-                <span className="fs-6">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</span>
-              )}
-              <p>{summary}</p>
-            </div>
-            <div className="ps-3 text-nowrap" style={{ placeSelf: "end" }}>
-              <p>read more →</p>
-            </div>
-          </div>
+          <h3>{title}</h3>
+          {updateDate && (
+            <span className="fs-6">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</span>
+          )}
+          <p className="text-truncate">{summary}</p>
         </ListGroup.Item>
       );
     });
