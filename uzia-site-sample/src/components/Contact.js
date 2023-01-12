@@ -23,17 +23,17 @@ class Contact extends React.Component {
             <p>また、頂きましたお問い合わせにつきましては全て目を通させていただきますが、返答につきましてはサークル内部で協議の上、必要な場合にのみご回答させていただきます。予めご了承ください。</p>
           </div>
 
-          <div className="mt-5">
-            <Row>
+          <div className="mt-5 contact-flex-field">
+            <Row xs={1} sm={1} md={1} lg={2}>
               <Col>
                 <h2>公式Twitter</h2>
                 <Card>
-                  <Row>
-                    <Col>
+                  <Row xs={1} sm={2}>
+                    <Col className="twitter-image-col">
                       <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/img/uzia_icon_sample.png`} />
                     </Col>
                     <Col>
-                      <Card.Body>
+                      <Card.Body className='card-body'>
                         <Card.Text>当サークル公式TwitterのDMよりお問い合わせをお受けしております。</Card.Text>
                         <Button variant="primary" href="/">Twitter DMはこちら</Button>
                       </Card.Body>
@@ -44,10 +44,10 @@ class Contact extends React.Component {
               <Col>
                 <h2>お問い合わせフォーム</h2>
                 <Card>
-                  <Card.Text>当サークルのお問い合わせフォームです。ご連絡可能なメールアドレス必須です。</Card.Text>
-                  <Col>
+                  <Card.Body>
+                    <Card.Text>当サークルのお問い合わせフォームです。ご連絡可能なメールアドレス必須です。</Card.Text>
                     <h1>工事中</h1>
-                  </Col>
+                  </Card.Body>
                 </Card>
               </Col>
             </Row>
