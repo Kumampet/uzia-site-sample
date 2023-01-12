@@ -11,17 +11,17 @@ class FormBase extends React.Component {
             label="お名前"
             className="mb-3"
           >
-            <Form.Control type="email" placeholder="name@example.com" />
+            <Form.Control type="name" placeholder="お名前" />
           </FloatingLabel>
         </Form.Group>
 
         <Form.Group className="mb-3">
           <FloatingLabel
-            controlId="floatingInput"
+            controlId="floatingMail"
             label="Email"
             className="mb-3"
           >
-            <Form.Control type="email" placeholder="name@example.com" />
+            <Form.Control type="email" placeholder="mail@example.com" />
           </FloatingLabel>
         </Form.Group>
 
@@ -29,6 +29,7 @@ class FormBase extends React.Component {
           <FloatingLabel controlId="floatingTextarea" label="お問い合わせ内容">
             <Form.Control
               as="textarea"
+              type="value"
               placeholder="お問い合わせ内容"
               style={{ height: '100px' }}
             />
