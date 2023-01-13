@@ -2,9 +2,9 @@ import React from 'react';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_donop5o';
-const TEMPLATE_ID = 'template_ahpgmfe';
-const PUBLIC_KEY = 'F1LdMvCn6OaB4rwCG';
+const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 
 class FormBase extends React.Component {
   constructor(props) {
