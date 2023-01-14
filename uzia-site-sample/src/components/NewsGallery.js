@@ -47,6 +47,9 @@ class NewsGallery extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <div className="mt-5">
+          <p>ゲームの更新情報、イベントへの出店情報など当サークルの最新情報を掲載しております。</p>
+        </div>
         <ListGroup>
           {this.genearteNewsGallery(this.context.newsDataItems)}
         </ListGroup>

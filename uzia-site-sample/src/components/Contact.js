@@ -23,7 +23,7 @@ class Contact extends React.Component {
         <PageHeaderImage pageTitle={pageTitle} backgroundImageSource={`${process.env.PUBLIC_URL}/img/page_header/mori.png`} />
         <Container>
           <div className="mt-5">
-            <p>弊サークルへのお問い合わせは以下よりお受けいたします。</p>
+            <p>当サークルへのお問い合わせは以下よりお受けいたします。</p>
             <p>また、頂きましたお問い合わせにつきましては全て目を通させていただきますが、返答につきましてはサークル内部で協議の上、必要な場合にのみご回答させていただきます。予めご了承ください。</p>
           </div>
 
