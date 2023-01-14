@@ -112,7 +112,7 @@ class CardTile extends React.Component {
 
     return (
       <Col>
-        <Card>
+        <Card className={classnames({ "flex-card": option.flex })}>
           {option.flex ? (
             <Row>
               {imgPath && (

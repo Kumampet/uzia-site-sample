@@ -19,6 +19,7 @@ class NewsGallery extends React.Component {
 
   genearteNewsGallery = (items = []) => {
     return [...items].map(item => {
+      console.log({item})
       const id = _get(item, 'id');
       const title = _get(item, 'title');
       const summary = _get(item, 'summary');

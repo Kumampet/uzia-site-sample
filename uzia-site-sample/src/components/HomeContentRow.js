@@ -5,6 +5,11 @@ import { Button, Card } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _get from 'lodash/get';
 import { replaceURLPublicPath } from '../common';
+import dayjs from 'dayjs';
+import ja from 'dayjs/locale/ja';
+
+// dayjsの日本語対応
+dayjs.locale(ja);
 
 class HomeContentRow extends React.Component {
   constructor(props) {
@@ -22,6 +27,7 @@ class HomeContentRow extends React.Component {
       const id = _get(item, 'id');
       const title = _get(item, "title");
       const summary = _get(item, "summary");
+      const updateDate = _get(item, "update_date");
       const allVirePath = _get(this.props, "allViewPath");
 
       // CardTextは最大4行。超過した場合は...表記
@@ -29,7 +35,15 @@ class HomeContentRow extends React.Component {
         <Card.Body className="home-content-row-card-body">
           <Card.Title>{title}</Card.Title>
           <Card.Text className={classnames(`card-text-${index}`, `content-type-key-${contentTypeKey} line-clamp-4`)}>{summary}</Card.Text>
-          <Button href={replaceURLPublicPath(`${allVirePath}/${id}`)}>くわしく</Button>
+          <div className="right-box">
+            <div className="d-grid gap-2">
+              <Button href={replaceURLPublicPath(`${allVirePath}/${id}`)}>くわしく</Button>
+            </div>
+            {updateDate && (
+              <p className="update-date text-end">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</p>
+            )}
+          </div>
+
         </Card.Body>
       );
       item.content_body = newBody;
