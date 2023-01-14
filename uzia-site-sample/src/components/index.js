@@ -19,3 +19,4 @@ export { default as AboutDevelopMember } from './AboutDevelopMember';
 export { default as TwitterEmbed } from './TwitterEmbed';
 export { default as HomeContact } from './HomeContact';
 export { default as FormBase } from './FormBase';
+export { default as CardCollapse } from './CardCollapse';

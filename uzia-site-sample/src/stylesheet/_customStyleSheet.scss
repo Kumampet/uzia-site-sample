@@ -10,6 +10,11 @@ body,
   padding-bottom: 2rem;
 }
 
+/* CardCollapse */
+.card-collapse-container .card-body-content {
+  padding-right: 1rem;
+}
+
 /* ホームのTwitterとContactの上下マージン */
 #root[breakpoint="xs"],
 #root[breakpoint="sm"] {
