@@ -17,7 +17,8 @@ class FormBase extends React.Component {
         email: 'メールアドレス',
         subject: '件名',
         message: 'お問い合わせ内容',
-        submit: '送信'
+        submit: '送信',
+        submitting: '送信中...'
       },
       value: {
         name: '',
@@ -28,7 +29,8 @@ class FormBase extends React.Component {
       submitSuccess: false,
       submitFaild: false,
       successColapseOpen: false,
-      faildColapseOpen: false
+      faildColapseOpen: false,
+      loading: false
     };
     this._formRef = React.createRef();
   }
@@ -44,6 +46,8 @@ class FormBase extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+
+    this.setState({ loading: true });
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this._formRef.current, PUBLIC_KEY)
       .then((result) => {
@@ -73,14 +77,15 @@ class FormBase extends React.Component {
   }
 
   openCollapse = (e) => {
-    console.log(this.state)
     if (this.state.submitSuccess && !this.state.successColapseOpen) {
       this.setState({
+        loading: false,
         successColapseOpen: true,
         faildColapseOpen: false
       });
     } else if (this.state.submitFaild && !this.state.faildColapseOpen) {
       this.setState({
+        loading: false,
         successColapseOpen: false,
         faildColapseOpen: true
       });
@@ -105,7 +110,7 @@ class FormBase extends React.Component {
   }
 
   render() {
-    const { label, value, successColapseOpen, faildColapseOpen } = this.state;
+    const { label, value, successColapseOpen, faildColapseOpen, loading } = this.state;
     return (
       <React.Fragment>
         {/* <CardCollapse className="mb-3" message="送信しました！" isOpen={successColapseOpen} closeButton={true}/> */}
@@ -201,7 +206,13 @@ class FormBase extends React.Component {
 
           <Form.Group className="mb-3">
             <div className="d-grid gap-2">
-              <Button type="submit" size="lg">{label.submit}</Button>
+              <Button
+                type="submit"
+                size="lg"
+                disabled={loading}
+              >
+                {loading ? label.submitting : label.submit}
+              </Button>
             </div>
           </Form.Group>
         </Form>
