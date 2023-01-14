@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {
   CustomNavbar as Navbar,
   CustomFooter as Footer,
-  Home, About, Game, Contact, News, NewsPage
+  Home, About, Game, Contact, News, NewsPage, _404
 } from './components';
 import AppContext from './AppContext';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavmenuData from './static/Navmenu.json';
 import GameDatas from './static/Games.json';
@@ -135,12 +135,15 @@ class App extends Component {
       <AppContext.Provider value={this.contextValue}>
         <Navbar navMenuData={this.contextValue.navMenuData.data} />
         <Router>
-          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
-          <Route path={`${process.env.PUBLIC_URL}/about`} component={About}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/news`} component={News}/>
-          <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/game`} component={Game}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
+          <Switch>
+            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+            <Route path={`${process.env.PUBLIC_URL}/about`} component={About} />
+            <Route exact path={`${process.env.PUBLIC_URL}/news`} component={News} />
+            <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage} />
+            <Route exact path={`${process.env.PUBLIC_URL}/game`} component={Game} />
+            <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact} />
+            <Route component={_404} />
+          </Switch>
         </Router>
         <Footer />
       </AppContext.Provider>
