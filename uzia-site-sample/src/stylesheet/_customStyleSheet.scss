@@ -137,8 +137,22 @@ body,
 }
 
 /* News Gallery */
-.news-list-group-contents p {
-  margin: 0;
+.news-list-group-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin: 0;
+  }
+  .news-list-group-body {
+    flex-grow: 1;
+    min-width: 0;
+  }
+  .news-list-group-button {
+    font-size: xx-large;
+    margin-left: 1.5rem;
+  }
+
 }
 
 /* Contactページ */

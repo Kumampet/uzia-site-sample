@@ -19,7 +19,7 @@ class NewsGallery extends React.Component {
 
   genearteNewsGallery = (items = []) => {
     return [...items].map(item => {
-      console.log({item})
+      console.log({ item })
       const id = _get(item, 'id');
       const title = _get(item, 'title');
       const summary = _get(item, 'summary');
@@ -27,11 +27,18 @@ class NewsGallery extends React.Component {
       const updateDate = _get(item, 'update_date');
       return (
         <ListGroup.Item action href={href} className="news-list-group-contents">
-          <h3>{title}</h3>
-          {updateDate && (
-            <span className="fs-6">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</span>
-          )}
-          <p className="text-truncate">{summary}</p>
+          <div className="news-list-group-contents">
+            <div className="news-list-group-body">
+              <h3>{title}</h3>
+              {updateDate && (
+                <span className="fs-6">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</span>
+              )}
+              <p className="text-truncate">{summary}</p>
+            </div>
+            <div className="news-list-group-button">
+              <i class="fa-solid fa-angles-right"></i>
+            </div>
+          </div>
         </ListGroup.Item>
       );
     });
