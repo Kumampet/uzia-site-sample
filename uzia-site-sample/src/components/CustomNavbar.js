@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _isEmpty from 'lodash/isEmpty';
 import { replaceURLPublicPath } from '../common';
 
 class CustomNavbar extends Component {
+  static propTypes = {
+    fixed: PropTypes.string,
+    sticky: PropTypes.string,
+    flex: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    flex: false
+  }
+
   constructor(props) {
     super(props);
     this.state = {
+      flex: props.flex,
       fixed: props.fixed,
       sticky: props.sticky,
       bg: props.bg || 'light',
@@ -97,23 +108,46 @@ class CustomNavbar extends Component {
   }
 
   render() {
-    const { brandTitle, navbarMenus, fixed, sticky, basePath } = this.state;
-    
+    const { brandTitle, navbarMenus, fixed, sticky, flex } = this.state;
+
     return (
       <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
-        <Container>
-          <Navbar.Brand href={replaceURLPublicPath("/")}>{brandTitle}</Navbar.Brand>
-          {!_isEmpty(navbarMenus) && (
-            <React.Fragment>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
+        {/* Flex */}
+        {flex ? (
+          <React.Fragment>
+            <Container className="d-flex flex-row flex-nowrap">
+              <Navbar.Brand href={replaceURLPublicPath("/")}>{brandTitle}</Navbar.Brand>
+              {!_isEmpty(navbarMenus) && (
+                <React.Fragment>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                </React.Fragment>
+              )}
+            </Container>
+            {!_isEmpty(navbarMenus) && (
+              <Container>
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                    {_forEach(navbarMenus, menu => menu)}
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            )}
+          </React.Fragment>
+        ) : (
+          <Container>
+            <Navbar.Brand href={replaceURLPublicPath("/")}>{brandTitle}</Navbar.Brand>
+              {!_isEmpty(navbarMenus) && (
+                <React.Fragment>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   {_forEach(navbarMenus, menu => menu)}
                 </Nav>
               </Navbar.Collapse>
-            </React.Fragment>
-          )}
-        </Container>
+                </React.Fragment>
+              )}
+          </Container>
+        )}
       </Navbar>
     );
   }

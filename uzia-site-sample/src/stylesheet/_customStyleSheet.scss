@@ -15,6 +15,22 @@ body,
   padding-right: 1rem;
 }
 
+/* NavBar */
+.navbar {
+  >.d-flex {
+    .navbar-brand {
+      flex-grow: 1;
+      min-width: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .navbar-toggler {
+      width: 3.5rem;
+    }
+  }
+}
+
 /* ホームのTwitterとContactの上下マージン */
 #root[breakpoint="xs"],
 #root[breakpoint="sm"] {
@@ -53,7 +69,8 @@ body,
     -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-  } 
+  }
+
   .update-date {
     font-size: 0.5rem;
     margin-top: 0.5rem;
@@ -141,13 +158,16 @@ body,
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   p {
     margin: 0;
   }
+
   .news-list-group-body {
     flex-grow: 1;
     min-width: 0;
   }
+
   .news-list-group-button {
     font-size: xx-large;
     margin-left: 1.5rem;
