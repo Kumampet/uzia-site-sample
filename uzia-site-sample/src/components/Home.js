@@ -44,7 +44,7 @@ class Home extends React.Component {
         <Container>
           <div className="mt-5">
             <HomeContentRow
-              allViewPath={replaceURLPublicPath(`${process.env.PUBLIC_URL}/game`)}
+              allViewPath={replaceURLPublicPath(`/game`)}
               title="LATEST GAME"
               displayType="card"
               contentTypeKey="latest_conntents"
@@ -53,7 +53,7 @@ class Home extends React.Component {
           </div>
           <div className="mt-5">
             <HomeContentRow
-              allViewPath={replaceURLPublicPath(`${process.env.PUBLIC_URL}/news`)}
+              allViewPath={replaceURLPublicPath(`/news`)}
               title="LATEST NEWS"
               displayType="card"
               contentTypeKey="latest_news"
