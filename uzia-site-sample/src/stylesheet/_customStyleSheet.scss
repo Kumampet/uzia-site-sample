@@ -23,17 +23,20 @@ body,
         margin-right: 0;
       }
     }
+
     &.navlink-margin-md {
       >.nav-link:not(:last-child) {
         margin-right: 1.5rem;
       }
     }
+
     &.navlink-margin-lg {
       >.nav-link:not(:last-child) {
         margin-right: 3rem;
       }
     }
   }
+
   >.d-flex {
     .navbar-brand {
       flex-grow: 1;
@@ -45,9 +48,10 @@ body,
     .navbar-toggler {
       width: 3.5rem;
     }
-    + .container {
+
+    +.container {
       .navbar-nav {
-        margin-right: 0!important;
+        margin-right: 0 !important;
         margin-left: auto;
       }
     }
@@ -84,20 +88,28 @@ body,
 }
 
 /* HomeContentRowのカード */
-.home-contents-row .home-content-row-card-body {
-  .card-text {
-    height: 4.5rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+.card-tile {
+  .card-body {
+    .right-box {
+      .update-date {
+        font-size: 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
   }
-
-  .update-date {
-    font-size: 0.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+  .text-ellipsis .card-body {
+    .card-text {
+      height: 4.5rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+  }
+  .flex-card .card-body {
+    padding-bottom: 0;
   }
 }
 

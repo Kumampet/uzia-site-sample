@@ -12,14 +12,16 @@ class CardTile extends React.Component {
   static contextType = AppContext;
 
   static propTypes = {
-    contentItems: PropTypes.array.isRequired
+    contentItems: PropTypes.array.isRequired,
+    textEllipsis: PropTypes.bool,
   }
 
   static defaultProps = {
     contentItems: [],
     xsThreshold: 1,
     mdThreshold: 3,
-    lgThreshold: 4
+    lgThreshold: 4,
+    textEllipsis: true
   }
 
   constructor(props) {
@@ -30,7 +32,8 @@ class CardTile extends React.Component {
       xsThreshold: props.xsThreshold,
       mdThreshold: props.mdThreshold,
       lgThreshold: props.lgThreshold,
-      maxRow: props.maxRow
+      maxRow: props.maxRow,
+      textEllipsis: props.textEllipsis
     };
   }
 
@@ -112,7 +115,11 @@ class CardTile extends React.Component {
 
     return (
       <Col>
-        <Card className={classnames({ "flex-card": option.flex })}>
+        <Card className={classnames({
+          "flex-card": option.flex,
+          "text-ellipsis": this.state.textEllipsis,
+        })}
+        >
           {option.flex ? (
             <Row>
               {imgPath && (
@@ -144,7 +151,7 @@ class CardTile extends React.Component {
     if (_isEmpty(contentItems)) return null;
 
     return (
-      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4">
+      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4 card-tile">
         {this.fetchCardTiles()}
       </Row>
     )
