@@ -19,11 +19,8 @@ export default class UZIA extends React.Component {
     const timerId = setTimeout(() => {
       clearTimeout(timerId);
       const navbarHeight = this.calcNavbarHeight();
-      console.log({ navbarHeight })
-      this.breakLodingBackground();
-      this.setState({
-        navbarHeight
-      });
+      this.breakLodingBackground(); // ローディング解除アニメーション
+      this.setState({ navbarHeight });
     }, 1000);
   }
 
@@ -32,6 +29,7 @@ export default class UZIA extends React.Component {
     return navbar ? navbar.clientHeight : 0;
   }
 
+  // ローディング解除アニメーション関数
   breakLodingBackground = () => {
     const loadingElement = document.querySelector('.content-loading');
     // アニメーション時間（ミリ秒）
