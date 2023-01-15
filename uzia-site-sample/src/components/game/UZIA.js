@@ -5,7 +5,7 @@ export default class UZIA extends React.Component {
 
   calcNavbarHeight = () => {
     const navbar = document.querySelector('.main-navbar');
-    return navbar? navbar.clientHeight : 0;
+    return navbar ? navbar.clientHeight : 0;
   }
   render() {
     const navbarHeight = this.calcNavbarHeight();

@@ -115,7 +115,7 @@ class CustomNavbar extends Component {
     const { brandTitle, navbarMenus, fixed, sticky, flex, navlinkMargin } = this.state;
 
     return (
-      <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
+      <Navbar className="main-navbar" variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
         {/* Flex */}
         {flex ? (
           <React.Fragment>
