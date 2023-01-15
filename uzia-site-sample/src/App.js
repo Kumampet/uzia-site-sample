@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   CustomNavbar as Navbar,
   CustomFooter as Footer,
-  Home, About, Game, Contact, News, NewsPage, _404
+  Home, About, Game, GamePage, Contact, News, NewsPage, _404
 } from './components';
 import AppContext from './AppContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -141,6 +141,7 @@ class App extends Component {
             <Route exact path={`${process.env.PUBLIC_URL}/news`} component={News} />
             <Route path={`${process.env.PUBLIC_URL}/news/:id`} component={NewsPage} />
             <Route exact path={`${process.env.PUBLIC_URL}/game`} component={Game} />
+            <Route exact path={`${process.env.PUBLIC_URL}/game/:id`} component={GamePage} />
             <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact} />
             <Route component={_404} />
           </Switch>
