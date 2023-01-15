@@ -21,7 +21,6 @@ export default class UZIA extends React.Component {
             width: '100vw',
             height: `calc(100vh - ${navbarHeight}px)`
           }}></div>
-          {/* <img src={replaceURLPublicPath('/img/sample_1920x1080.png')}/> */}
           <div>
             <h1>UZIA</h1>
             <p>test</p>
