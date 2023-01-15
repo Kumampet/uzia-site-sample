@@ -17,6 +17,23 @@ body,
 
 /* NavBar */
 .navbar {
+  .navbar-nav {
+    &.navlink-margin-sm {
+      >.nav-link:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+    &.navlink-margin-md {
+      >.nav-link:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+    &.navlink-margin-lg {
+      >.nav-link:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+  }
   >.d-flex {
     .navbar-brand {
       flex-grow: 1;
@@ -27,6 +44,12 @@ body,
 
     .navbar-toggler {
       width: 3.5rem;
+    }
+    + .container {
+      .navbar-nav {
+        margin-right: 0!important;
+        margin-left: auto;
+      }
     }
   }
 }

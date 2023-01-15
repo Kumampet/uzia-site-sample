@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import _forEach from 'lodash/forEach';
 import _isEmpty from 'lodash/isEmpty';
@@ -10,15 +11,18 @@ class CustomNavbar extends Component {
     fixed: PropTypes.string,
     sticky: PropTypes.string,
     flex: PropTypes.bool,
+    navlinkMargin: PropTypes.string
   }
 
   static defaultProps = {
-    flex: false
+    flex: false,
+    navlinkMargin: 'sm'
   }
 
   constructor(props) {
     super(props);
     this.state = {
+      navlinkMargin: props.navlinkMargin,
       flex: props.flex,
       fixed: props.fixed,
       sticky: props.sticky,
@@ -108,7 +112,7 @@ class CustomNavbar extends Component {
   }
 
   render() {
-    const { brandTitle, navbarMenus, fixed, sticky, flex } = this.state;
+    const { brandTitle, navbarMenus, fixed, sticky, flex, navlinkMargin } = this.state;
 
     return (
       <Navbar variant="dark" bg="dark" expand="lg" fixed={fixed} sticky={sticky}>
@@ -126,7 +130,12 @@ class CustomNavbar extends Component {
             {!_isEmpty(navbarMenus) && (
               <Container>
                 <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="me-auto">
+                  <Nav className={classnames("me-auto", {
+                    "navlink-margin-sm": navlinkMargin === 'sm',
+                    "navlink-margin-md": navlinkMargin === 'md',
+                    "navlink-margin-lg": navlinkMargin === 'lg',
+                  })}
+                  >
                     {_forEach(navbarMenus, menu => menu)}
                   </Nav>
                 </Navbar.Collapse>
@@ -136,16 +145,21 @@ class CustomNavbar extends Component {
         ) : (
           <Container>
             <Navbar.Brand href={replaceURLPublicPath("/")}>{brandTitle}</Navbar.Brand>
-              {!_isEmpty(navbarMenus) && (
-                <React.Fragment>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                  {_forEach(navbarMenus, menu => menu)}
-                </Nav>
-              </Navbar.Collapse>
-                </React.Fragment>
-              )}
+            {!_isEmpty(navbarMenus) && (
+              <React.Fragment>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className={classnames("me-auto", {
+                    "navlink-margin-sm": navlinkMargin === 'sm',
+                    "navlink-margin-md": navlinkMargin === 'md',
+                    "navlink-margin-lg": navlinkMargin === 'lg',
+                  })}
+                  >
+                    {_forEach(navbarMenus, menu => menu)}
+                  </Nav>
+                </Navbar.Collapse>
+              </React.Fragment>
+            )}
           </Container>
         )}
       </Navbar>
