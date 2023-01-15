@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { GameGallery, PageHeaderImage } from '../components';
+import { replaceURLPublicPath } from '../common';
 
 class Game extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Game extends React.Component {
         <Container>
           <div className="mt-5">
             {/* <h1>工事中</h1> */}
-            <GameGallery />
+            <GameGallery allViewPath={replaceURLPublicPath(`${process.env.PUBLIC_URL}/game`)} />
           </div>
         </Container>
       </React.Fragment>
