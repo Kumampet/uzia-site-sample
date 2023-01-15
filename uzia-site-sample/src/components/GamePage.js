@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import { NewsArticle } from '../components';
 import * as GAMES from '../components/game/';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 import _find from 'lodash/find';
 
 class GamePage extends React.Component {
@@ -29,10 +30,23 @@ class GamePage extends React.Component {
     const gameId = _get(this.props.match, "params.id");
     const gameData = this.getNewsInfoFromId(gameId);
     const componentName = gameData.key;
+    const component= GAMES[componentName];
+
+    if (!gameData || _isEmpty(gameData) || !component) {
+      return (
+        <Container>
+          <h1>ゲームページがありません。</h1>
+          <p>Game not found</p>
+        </Container>
+      );
+    }
+
+    {/* ゲームページ単独のコンポーネントを動的に描画できる */}
+    const gamePageComponent = React.createElement(component);
+
     return (
       <React.Fragment>
-        {/* ゲームページ単独のコンポーネントを動的に描画できる */}
-        {React.createElement(GAMES[componentName])}
+        {gamePageComponent}
       </React.Fragment>
     );
   }
