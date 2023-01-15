@@ -32,7 +32,7 @@ class GameGallery extends React.Component {
       const title = _get(item, "title");
       const summary = _get(item, "summary");
       const updateDate = _get(item, "update_date");
-      const allVirePath = _get(this.props, "allViewPath");
+      // const allVirePath = _get(this.props, "allViewPath");
 
       // CardTextは最大4行。超過した場合は...表記
       const newBody = (
@@ -41,7 +41,7 @@ class GameGallery extends React.Component {
           <Card.Text className={classnames(`card-text-${index}`, `content-type-key-${contentTypeKey} line-clamp-4`)}>{summary}</Card.Text>
           <div className="right-box">
             <div className="d-grid gap-2">
-              <Button href={replaceURLPublicPath(`${allVirePath}/${id}`)}>くわしく</Button>
+              <Button href={replaceURLPublicPath(`/game/${id}`)}>くわしく</Button>
             </div>
             {updateDate && (
               <p className="update-date text-end">更新日時: {dayjs(updateDate).format('YYYY年MMMMD日')}</p>
