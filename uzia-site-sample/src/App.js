@@ -133,7 +133,7 @@ class App extends Component {
     console.log("App::this.contextValue -> ", this.contextValue)
     return (
       <AppContext.Provider value={this.contextValue}>
-        <Navbar flex={true} fixed="top" sticky="top" navMenuData={this.contextValue.navMenuData.data} navlinkMargin="md"/>
+        <Navbar className="main-navbar" flex={true} fixed="top" sticky="top" navMenuData={this.contextValue.navMenuData.data} navlinkMargin="md"/>
         <Router>
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />

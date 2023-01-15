@@ -4,7 +4,7 @@ import { replaceURLPublicPath } from '../../common';
 export default class UZIA extends React.Component {
 
   calcNavbarHeight = () => {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.main-navbar');
     return navbar? navbar.clientHeight : 0;
   }
   render() {
