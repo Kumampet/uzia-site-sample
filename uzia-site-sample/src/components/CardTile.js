@@ -144,7 +144,7 @@ class CardTile extends React.Component {
     if (_isEmpty(contentItems)) return null;
 
     return (
-      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4 justify-content-center">
+      <Row xs={xsThreshold} md={mdThreshold} lg={lgThreshold} className="g-4">
         {this.fetchCardTiles()}
       </Row>
     )
