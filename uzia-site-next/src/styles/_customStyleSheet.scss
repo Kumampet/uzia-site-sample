@@ -1,0 +1,253 @@
+html,
+body,
+#root {
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column !important;
+}
+
+#root>.container {
+  padding-bottom: 2rem;
+}
+
+/* CardCollapse */
+.card-collapse-container .card-body-content {
+  padding-right: 1rem;
+}
+
+/* NavBar */
+.navbar {
+  .navbar-nav {
+    &.navlink-margin-sm {
+      >.nav-link:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+
+    &.navlink-margin-md {
+      >.nav-link:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+
+    &.navlink-margin-lg {
+      >.nav-link:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+  }
+
+  >.d-flex {
+    .navbar-brand {
+      flex-grow: 1;
+      min-width: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .navbar-toggler {
+      width: 3.5rem;
+    }
+
+    +.container {
+      .navbar-nav {
+        margin-right: 0 !important;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+/* ホームのTwitterとContactの上下マージン */
+#root[breakpoint="xs"],
+#root[breakpoint="sm"] {
+  .home-info>.row-cols-1 .col:not(:first-child) {
+    margin-top: 3rem;
+  }
+}
+
+#root[breakpoint="xs"] {
+  .home-contents-row>.title-container {
+    //  HomeContentsRowのMBタイトル調整
+    flex-direction: column !important;
+    align-items: flex-start !important;
+
+    .btn {
+      margin-left: 0 !important;
+      margin-top: .3rem;
+    }
+  }
+
+  // HomeのTwitter Timeline
+  .home-info {
+    .twitter-embed-container.timeline {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* HomeContentRowのカード */
+.card-tile {
+  .card-body {
+    .right-box {
+      .update-date {
+        font-size: 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .text-ellipsis .card-body {
+    .card-text {
+      height: 4.5rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+  }
+  .flex-card .card-body {
+    padding-bottom: 0;
+  }
+}
+
+/* News詳細段落 */
+.news-article-container .news-article-body .news-article-paragraph img {
+  margin-bottom: 1rem;
+}
+
+/* ページヘッダーイメージ */
+.page-header-container {
+  position: relative;
+
+  >.page-title {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  >.page-header {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 35vw;
+    max-height: 200px;
+    position: relative;
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-color: rgba(28, 27, 27, 0.408);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+    }
+  }
+}
+
+/* Twitter setting */
+.twitter-color {
+  background-color: #1A8CD8;
+}
+
+.twitter-dm-button-custom svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+  fill: currentColor;
+  color: white;
+}
+
+/* Twitter Embed */
+.twitter-embed-container {
+  position: relative;
+
+  &.timeline {
+    >* {
+      position: absolute;
+    }
+  }
+
+  >.twitter-embed-body {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  >.twitter-embed-loading {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* News Gallery */
+.news-list-group-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+  }
+
+  .news-list-group-body {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .news-list-group-button {
+    font-size: xx-large;
+    margin-left: 1.5rem;
+  }
+
+}
+
+/* Contactページ */
+#root[breakpoint="xs"] {
+  .twitter-image-col {
+    display: none;
+
+    +.col {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+#root[breakpoint="xs"],
+#root[breakpoint="sm"],
+#root[breakpoint="md"] {
+  .contact-flex-field {
+    .col:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Footer
+.footer {
+  margin-top: auto !important;
+  --cui-footer-min-height: 3rem;
+  --cui-footer-padding-x: 1rem;
+  --cui-footer-padding-y: 0.5rem;
+  --cui-footer-color: rgba(44, 56, 74, 0.95);
+  --cui-footer-bg: #ebedef;
+  --cui-footer-border-color: #d8dbe0;
+  --cui-footer-border: 1px solid var(--cui-footer-border-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--cui-footer-min-height);
+  padding: var(--cui-footer-padding-y) var(--cui-footer-padding-x);
+  color: var(--cui-footer-color);
+  background: var(--cui-footer-bg);
+  border-top: var(--cui-footer-border);
+}
