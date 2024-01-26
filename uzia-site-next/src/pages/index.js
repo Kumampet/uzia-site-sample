@@ -28,7 +28,6 @@ export default function Home() {
   console.log({carouselItems})
   return (
     <React.Fragment>
-      <h1>Hwllo</h1>
       <Carousel items={carouselItems} defaultTheme="dark" />
     </React.Fragment>
   );
